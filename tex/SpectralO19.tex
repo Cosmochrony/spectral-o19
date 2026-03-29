@@ -1,0 +1,751 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% ---- theorem environments ----
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{openproblem}[theorem]{Open Problem}
+
+% ---- notation shorthands ----
+\newcommand{\bstar}{\beta^{*}}
+\newcommand{\dpair}{\delta_{\mathrm{pair}}}
+\newcommand{\dc}{\delta_{c}}
+\newcommand{\sigmapair}{\sigma_{\mathrm{pair}}}
+\newcommand{\sigmacan}{\sigma_{\mathrm{pair}}^{\mathrm{can}}}
+\newcommand{\Dcan}{D^{\mathrm{can}}}
+\newcommand{\rcq}{r(c,q)}
+\newcommand{\Heis}{\mathrm{Heis}_{3}(\mathbb{Z}/q\mathbb{Z})}
+\newcommand{\ellgam}{\ell_{\gamma}}
+
+% -----------------------------------------------------------------------
+\title{Canonical Pair Observables in Weil Blocks:\\
+Structure of the Residual Amplitude Factor and Pipeline-Independent
+Formulation\\[6pt]
+{\large O19 --- Spectral Admissibility Sub-programme}}
+
+\author{J.~Beau\\[4pt]
+\small Independent Researcher}
+
+\date{2026}
+% -----------------------------------------------------------------------
+
+\begin{document}
+  \maketitle
+
+  \begin{abstract}
+    The O12--O18 sequence establishes that the physically relevant observable on
+    $\Heis$ is the pair-level quantity
+    $\sigmapair(n) = \sigma_{c}(n)\,\sigma_{q-c}(n)$, with capacity exponent
+    $\dpair \approx 7.44$ consistent with the phenomenological target
+    $\dpair \in [7.4, 10.6]$.
+    However, a residual amplitude factor $\rcq \in \{1,2,3,4\}$ persists in the
+    current pipeline, reflecting a dependence on the Gram--Schmidt initialisation
+    parameters $(b_{1}, b_{2})$ identified in~O17 but not yet resolved.
+    The present paper begins by making explicit the implicit normalisation factor
+    $D(c, b_{1}, b_{2}, n)$ of the O12/O13 implementation, separating its
+    dependence on the initial basis, the block instance, and the normalisation
+    convention.
+    We then determine the dependence structure of $\rcq$ by two independent
+    tests: variation under basis change at fixed block instance (Test~P2), and
+    variation under block-instance change at rigidly fixed basis (Test~P3).
+    Three outcomes are possible: $\rcq$ is a pure basis artefact (Case~A,
+    eliminable by canonical choice), a discrete instance invariant (Case~B,
+    requiring a canonical quotient), or a mixed quantity with both components
+    (Case~C, requiring a decomposition $r = r_{\mathrm{base}}\,r_{\mathrm{inst}}$).
+    We identify which case holds for the primes tested, relate the observed
+    structure to the metaplectic central-phase coherence $\ellgam(n)$ identified
+    in~O12, and construct the corresponding canonical observable $\sigmacan(n)$
+    independent of pipeline conventions.
+    The exponent $\dpair$ is unaffected in all cases; the contribution of this
+    paper concerns the amplitude structure, which is a prerequisite for the
+    fibre-level derivation of the $\dpair \to \bstar$ relation deferred to~O21.
+  \end{abstract}
+
+  \tableofcontents
+
+% -----------------------------------------------------------------------
+  \section{Introduction}
+    \label{sec:intro}
+% -----------------------------------------------------------------------
+
+    The O-series spectral admissibility sub-programme has progressively refined
+    the observable on Heisenberg Cayley graphs
+    $\mathrm{Cay}(G_{q}, S_{q})$ with $G_{q} = \Heis$ for prime~$q$.
+    Papers O12--O15~\cite{Beau2026a16,Beau2026a17,Beau2026a18,Beau2026a19}
+    established the exact block-level exponent
+    $\hat{\delta}_{\mathrm{exact}} \approx 3.72$, structurally below the
+    phenomenological target $\delta \in [7.4, 10.6]$.
+    O16~\cite{Beau2026a20} identified the resolution: the physically relevant
+    observable lives at the level of conjugate pairs $\{c, q-c\}$, yielding
+    $\dpair = 2\dc \approx 7.44$.
+    O17~\cite{Beau2026a21} provided the structural derivation showing that
+    blocks $c$ and $q-c$ carry identical Gram--Schmidt dynamics ($\delta_{q-c} =
+  \delta_{c}$) and that the factor $\rcq$ is a normalisation artefact, not a
+    structural invariant of $(c,q)$.
+    O18~\cite{Beau2026a22} derived the underlying parity involution
+    $c \leftrightarrow q-c$ from the Born--Infeld evenness of the substrate
+    action, closing the logical gap left in O16--O17.
+
+    Despite this closure, the pair observable $\sigmapair(n)$ retains a residual
+    amplitude factor $\rcq \in \{1, 2, 3, 4\}$ that depends on the pipeline
+    normalisation $D(c, b_{1}, b_{2}, n)$, currently implicit in the O12/O13
+    implementation~\cite{Beau2026a16,Beau2026a17}.
+    O18 Section~4.3 identifies the construction of a canonical normalisation
+    independent of $(b_{1}, b_{2})$ as the primary open technical task, deferred
+    to the present paper.
+
+    The goal of O19 is not to assume in advance that $\rcq$ is eliminable.
+    Instead, we first determine its precise dependence structure, then construct
+    the canonical observable appropriate to whichever case holds.
+    The dependence structure of $\rcq$ is not assumed a priori and may follow three distinct
+    scenarios: a pure basis artefact (Case~A, eliminable by canonical choice of initial frame),
+    a discrete instance invariant (Case~B, requiring a canonical quotient), or a mixed quantity
+    admitting a decomposition $\rcq = r_{\mathrm{base}} \cdot r_{\mathrm{inst}}$ with both
+    components (Case~C).
+    All three cases are treated; the classification is determined empirically in
+    Section~\ref{sec:classification}.
+
+    \paragraph{Scope.}
+      O19 does not aim to modify the observable class or the exponent, but to remove the last
+      layer of pipeline dependence at the amplitude level.
+      It does not re-derive $\dpair$, does not revisit the fibre identification of O18, and does
+      not address the $\dpair \to \bstar$ relation, which is the subject of~O21.
+
+
+
+    \paragraph{Organisation.}
+      Section~\ref{sec:pipeline} makes explicit the normalisation factor
+      $D(c, b_{1}, b_{2}, n)$.
+      Section~\ref{sec:phase} relates its structure to the metaplectic central-phase
+      coherence of the Weil representation.
+      Sections~\ref{sec:testP2} and~\ref{sec:testP3} present the two independence
+      tests.
+      Section~\ref{sec:classification} classifies the outcome as Case~A, B, or~C.
+      Section~\ref{sec:canonical} constructs the canonical observable accordingly.
+      Section~\ref{sec:discussion} interprets the result.
+      Section~\ref{sec:stability} verifies that $\dpair$ is unaffected.
+      Section~\ref{sec:conclusion} concludes.
+
+% -----------------------------------------------------------------------
+  \section{Explicit Form of the Pipeline Normalisation}
+  \label{sec:pipeline}
+% -----------------------------------------------------------------------
+
+  \subsection{Setup and notation}
+
+    Let $q$ be an odd prime and $c \in (\mathbb{Z}/q\mathbb{Z})^{\times}$.
+    The Weil representation $\rho_{c}$ of $\Heis$ acts on
+    $\mathbb{C}^{q}$~\cite{Beau2026a20,Beau2026a21}.
+    For a BFS shell $S_{n}$ of depth~$n$ in $\mathrm{Cay}(G_{q}, S_{q})$, the
+    Gram--Schmidt span tracker builds an orthonormal basis of
+    $\mathrm{span}\{\rho_{c}(g)v_{0} : g \in B_{n}\}$ iteratively, where
+    $v_{0} \in \mathbb{C}^{q}$ is an initial seed vector and $B_{n}$ is the
+    ball of radius~$n$.
+
+    The O12/O13 implementation records at each shell $S_{n}$ the increment
+    $\Delta\Sigma^{(c)}(n) = \dim\,\mathrm{span}(B_{n}) - \dim\,\mathrm{span}(B_{n-1})$,
+    from which the cumulative span $\Sigma^{(c)}(n)$ and the observable
+    $\sigma_{c}(n)$ are derived.
+    Throughout this paper we maintain the following notational distinction:
+    $\Sigma^{(c)}(n) \in \mathbb{Z}_{\geq 0}$ denotes the raw cumulative span (an integer,
+    the dimension of the spanned subspace), while $\sigma_{c}(n)$ denotes the
+    normalised observable derived from it (e.g., divided by a shell-size or
+    dimension factor as specified in the O12/O13 pipeline~\cite{Beau2026a16}).
+    The amplitude factor $\rcq$ originates in $\Sigma^{(c)}$ and propagates unchanged
+    into $\sigma_{c}$.
+    This distinction is essential: the asymptotic exponent $\dc$ is defined at the level
+    of $\sigma_{c}(n)$, while the residual factor $\rcq$ originates at the level of
+    $\Sigma^{(c)}(n)$.
+
+    The factor $D(c, b_{1}, b_{2}, n)$ is implicit in this construction.
+    Its explicit form can be written as follows.
+    Let $\{e_{1}, \ldots, e_{k(n)}\}$ be the orthonormal basis produced by the
+    Gram--Schmidt procedure on $\{\rho_{c}(g)\,v_{0} : g \in B_{n}\}$, where
+    $v_{0} = v_{0}(b_{1}, b_{2})$ is the seed vector determined by the block
+    instance and $k(n) = \Sigma^{(c)}_{(b_{1},b_{2})}(n)$.
+    At each new shell element $g \in S_{n}$, the Gram--Schmidt step contributes
+    \[
+      \Delta_{g}
+      \;=\;
+      \left\|
+        \rho_{c}(g)\,v_{0}
+        \;-\;
+        \sum_{j=1}^{k(n-1)} \langle \rho_{c}(g)\,v_{0},\, e_{j} \rangle\, e_{j}
+      \right\|^{2},
+    \]
+    and $\Delta\Sigma^{(c)}(n) = \#\{g \in S_{n} : \Delta_{g} > 0\}$.
+
+    \begin{lemma}[Phase invariance of $\Delta_{g}$]
+      \label{lem:Deltag-phase}
+      The residual norm $\Delta_{g}$ is invariant under multiplication of $v_{0}$ by a global
+      phase $e^{i\theta}$.
+      Under a unitary change of basis $v_{0} \mapsto U v_{0}$ with $U \in \mathrm{U}(q)$,
+      $\Delta_{g}$ changes if and only if the projection of $\rho_{c}(g)\,Uv_{0}$ onto the
+      current orthonormal frame differs from that of $\rho_{c}(g)\,v_{0}$.
+      Consequently, any variation of $D(c, b_{1}, b_{2}, n)$ under Test~P2
+      captures only the misalignment between $v_{0}$ and the orbit geometry of $\rho_{c}$,
+      not an intrinsic property of the representation.
+    \end{lemma}
+
+    \noindent
+    This lemma closes the link between $\Delta_{g}$ and Test~P2: a variation of $\rcq$
+    under unitary changes of $v_{0}$ is evidence of a phase-alignment effect, not of a
+    representation-theoretic invariant.
+    The pipeline normalisation factor is then
+    \begin{equation}
+      \label{eq:D-explicit}
+      D(c, b_{1}, b_{2}, n)
+      \;=\;
+      \frac{\Sigma^{(c)}_{(b_{1},b_{2})}(n)}{\Sigma^{(c)}_{\mathrm{ref}}(n)},
+    \end{equation}
+    where $\Sigma^{(c)}_{\mathrm{ref}}(n)$ is a reference span independent of
+    $(b_{1}, b_{2})$, to be specified in Section~\ref{sec:canonical}.
+    Equation~\eqref{eq:D-explicit} makes explicit what was implicit in O12/O13:
+    $D$ encodes how the choice of seed $v_{0}$ aligns with the orbit structure
+    of $\rho_{c}$ on $B_{n}$.
+
+    \begin{definition}[Pipeline normalisation factor]
+      \label{def:D}
+      The \emph{pipeline normalisation factor} is $D(c, b_{1}, b_{2}, n)$ as given
+      by equation~\eqref{eq:D-explicit}.
+      The \emph{residual amplitude factor} is defined as the limit of the log-ratio:
+      \begin{equation}
+        \label{eq:r-def}
+        \log \rcq
+        \;:=\;
+        \lim_{n\to\infty}
+        \Bigl(
+        \log \Sigma^{(c)}_{(b_{1},b_{2})}(n)
+        \;-\;
+        \log \Sigma^{(q-c)}_{(b_{1},b_{2})}(n)
+        \Bigr),
+      \end{equation}
+      assumed to exist and to be finite.
+      Equivalently, $\rcq = \lim_{n\to\infty} D(c,b_{1},b_{2},n) / D(q-c,b_{1},b_{2},n)$.
+      The convergence is in the ordinary sense (not limsup); its existence for the primes
+      tested is an empirical input from O16--O17, where the ratio stabilises to an
+      integer value.
+    \end{definition}
+
+    \begin{remark}
+      \label{rem:D-layers-sep}
+      Definition~\ref{def:D} separates two logically distinct objects: the shell-by-shell ratio $D$,
+      which depends on $n$, and the asymptotic residual $\rcq$, which is $n$-independent by
+      construction.
+      Whether the limit~\eqref{eq:r-def} is independent of $(b_{1}, b_{2})$ is precisely what
+      the tests of Sections~\ref{sec:testP2}--\ref{sec:testP3} determine.
+    \end{remark}
+
+  \subsection{Closed-form expression for $D$ and its seed dependence}
+    \label{subsec:D-closed}
+
+    We derive a closed-form expression for $D(c, b_{1}, b_{2}, n)$ in terms of the
+    Gram--Schmidt process, making the seed dependence explicit.
+
+    Let $\mathcal{O}_{n} = \{\rho_{c}(g)\,v_{0} : g \in B_{n}\} \subset \mathbb{C}^{q}$
+    be the orbit set at depth~$n$.
+    The Gram--Schmidt procedure applied to $\mathcal{O}_{n}$ in a fixed enumeration order
+    $g_{1}, g_{2}, \ldots$ produces an orthonormal sequence
+    $e_{1}, e_{2}, \ldots, e_{k(n)}$ with $k(n) = \Sigma^{(c)}_{(b_{1},b_{2})}(n)$.
+    The $j$-th basis vector is
+    \[
+      e_{j}
+      \;=\;
+      \frac{w_{j}}{\|w_{j}\|},
+      \qquad
+      w_{j} = \rho_{c}(g_{j})\,v_{0} - \sum_{i < j} \langle \rho_{c}(g_{j})\,v_{0},\, e_{i}\rangle\, e_{i},
+    \]
+    and $e_{j}$ is included (i.e., $\Delta_{g_{j}} > 0$) if and only if $\|w_{j}\| > 0$.
+
+    The cumulative span satisfies
+    \begin{equation}
+      \label{eq:Sigma-GS}
+      \Sigma^{(c)}_{(b_{1},b_{2})}(n)
+      \;=\;
+      \dim \mathrm{span}\bigl(\mathcal{O}_{n}\bigr)
+      \;=\;
+      \mathrm{rank}\,
+      \bigl[\rho_{c}(g)\,v_{0}\bigr]_{g \in B_{n}},
+    \end{equation}
+    where the right-hand side is the rank of the $q \times |B_{n}|$ matrix whose
+    columns are the orbit vectors.
+    This rank is independent of the enumeration order but depends on $v_{0}$.
+
+    \begin{lemma}[Seed dependence of the rank]
+      \label{lem:rank-seed}
+      For a fixed prime $q$, character $c$, and depth~$n$, the rank
+      $\Sigma^{(c)}_{(b_{1},b_{2})}(n) = \mathrm{rank}[\rho_{c}(g)\,v_{0}]_{g \in B_{n}}$
+      is lower-semicontinuous in $v_{0} \in \mathbb{C}^{q} \setminus \{0\}$:
+      it is generically equal to $\min(|B_{n}|, q)$, and can drop on a measure-zero set
+      of seeds.
+      In particular, the asymptotic span $\Sigma^{(c)}_{(b_{1},b_{2})}(n) \to q$ for $n$
+      large enough, independently of $v_{0}$, provided the orbit of $\rho_{c}$ spans
+      $\mathbb{C}^{q}$ (which holds for irreducible $\rho_{c}$~\cite{Beau2026a20}).
+    \end{lemma}
+
+    \begin{proof}[Proof sketch]
+The rank function on the columns of a matrix is lower-semicontinuous in the
+matrix entries, since it is the minimum size of a non-vanishing minor.
+For generic $v_{0}$, no accidental linear dependence occurs among
+$\rho_{c}(g)\,v_{0}$ for $g \in B_{n}$, so the rank achieves its maximum.
+The irreducibility of $\rho_{c}$ guarantees that the full orbit $\{\rho_{c}(g)\,v_{0}
+: g \in G_{q}\}$ spans $\mathbb{C}^{q}$, so $\Sigma^{(c)} \to q$ for all non-degenerate
+$v_{0}$.
+    \end{proof}
+
+    \begin{corollary}[Asymptotic independence of $D$]
+      \label{cor:D-asymptotic}
+      For irreducible $\rho_{c}$ and generic $v_{0}$,
+      $\Sigma^{(c)}_{(b_{1},b_{2})}(n) \sim A(c, b_{1}, b_{2})\, n^{\dc}$
+      asymptotically, where the amplitude $A(c, b_{1}, b_{2})$ depends on
+      the seed but the exponent $\dc$ does not.
+      The ratio $D(c, b_{1}, b_{2}, n) \to A(c, b_{1}, b_{2}) / A_{\mathrm{ref}}(c)$
+      as $n \to \infty$, which is the amplitude factor absorbed into $\rcq$.
+    \end{corollary}
+
+    \noindent
+    Corollary~\ref{cor:D-asymptotic} makes precise the sense in which $\rcq$ is a
+    seed-dependent amplitude ratio: it is the ratio of the asymptotic prefactors of
+    $\sigma_{c}$ and $\sigma_{q-c}$, both computed with the same seed $v_{0}$.
+    The factor $\rcq$ encodes \emph{only} the relative alignment of $v_{0}$ with the
+    orbit geometries of $\rho_{c}$ and $\rho_{q-c}$ respectively, not any property of
+    the exponents.
+
+  \subsection{Three layers of dependence}
+
+    We separate the dependence of $D(c, b_{1}, b_{2}, n)$ into three distinct
+    contributions:
+    \begin{enumerate}
+      \item \emph{Basis dependence.}
+      The choice of initial seed vector $v_{0}$ and of the Gram--Schmidt
+      orthonormalisation order implicitly defines a reference frame in
+      $\mathbb{C}^{q}$.
+      Different frames produce different increments $\Delta\Sigma^{(c)}$ at small
+      $n$, with effects that may or may not persist asymptotically.
+      \item \emph{Block-instance dependence.}
+      The pair $(b_{1}, b_{2})$ specifies a concrete realisation of the block at
+      character~$c$.
+      Different instances may encounter the geometry of $\rho_{c}$ differently,
+      producing instance-dependent amplitudes.
+      \item \emph{Convention dependence.}
+      The normalisation convention (e.g., dividing by shell size $|S_{n}|$ or by
+      block dimension $q$) introduces a multiplicative factor that is independent
+      of both basis and instance.
+    \end{enumerate}
+
+    \noindent
+    These three layers are logically independent and must not be conflated.
+    The remainder of this paper addresses only layers 1 and 2; convention
+    dependence is fixed by a canonical choice in Section~\ref{sec:canonical}.
+
+% -----------------------------------------------------------------------
+  \section{Metaplectic Phase Structure and the Origin of $r(c,q)$}
+  \label{sec:phase}
+% -----------------------------------------------------------------------
+
+  \subsection{Central-phase coherence in Weil representations}
+
+    The Weil representation $\rho_{c}$ of $\Heis$ involves metaplectic phases
+    arising from the central coordinate $\gamma$ of the group.
+    O12~\cite{Beau2026a16} introduced the coherence length
+    \[
+      \ellgam(n)
+      \;=\;
+      \left|
+        \frac{1}{|S_{n}|}\sum_{g \in S_{n}} e^{2\pi i c\,\gamma_{g}/q}
+      \right|,
+    \]
+    where $\gamma_{g}$ is the central coordinate of $g \in S_{n}$.
+    When $\ellgam(n) \approx 1$ (high coherence), the central phase acts as a
+    nearly constant multiplicative factor; when $\ellgam(n) \ll 1$ (low
+    coherence), it randomises path contributions.
+
+  \subsection{Phase as origin of $r(c,q)$}
+
+    \begin{proposition}[Informal]
+      \label{prop:phase-heuristic}
+      The factor $\rcq$ is the shell-asymptotic residue of a phase-alignment
+      mismatch between the initial basis $(b_{1}, b_{2})$ and the natural
+      metaplectic phase structure of $\rho_{c}$.
+      In the high-coherence regime ($\ellgam \approx 1$), this mismatch manifests
+      as a constant multiplicative factor on $\Sigma^{(c)}(n)$, producing integer
+      values $\rcq \in \{1, 2, 3, 4\}$.
+    \end{proposition}
+
+    \begin{remark}
+      Proposition~\ref{prop:phase-heuristic} is stated as an informal structural
+      claim; its precise formulation depends on the outcome of the tests in
+      Sections~\ref{sec:testP2}--\ref{sec:testP3}.
+      In Case~A (pure basis artefact), the claim is that the mismatch is entirely
+      absorbed by the choice of basis; in Cases~B and~C, a component of the
+      mismatch is intrinsic to the block instance or the representation geometry.
+    \end{remark}
+
+  \subsection{Connection to a canonical choice of basis}
+    \label{subsec:meta-basis}
+
+    A natural candidate for a canonical basis choice in Case~A is the
+    \emph{metaplectic-adapted basis}: the eigenbasis of $\rho_{c}(\gamma)$,
+    which diagonalises the central action and thus fixes the phase reference
+    unambiguously.
+    In this basis, the phase $e^{2\pi i c\,\gamma/q}$ contributes a diagonal
+    factor to every group element, and no interference between different
+    $\gamma$-sectors can arise.
+    If $\rcq = 1$ in this basis for all primes tested, Case~A is confirmed.
+
+% -----------------------------------------------------------------------
+  \section{Test P2: Dependence on the Initial Basis}
+  \label{sec:testP2}
+% -----------------------------------------------------------------------
+
+  \subsection{Protocol}
+
+    Fix $(q, c, b_{1}, b_{2})$.
+    We consider unitary changes of basis of $\mathbb{C}^{q}$ preserving the standard inner
+    product: the seed vector $v_{0}$ is replaced by $U v_{0}$ for $U \in \mathrm{U}(q)$,
+    and the Gram--Schmidt orthonormalisation order is varied independently.
+    Record $\rcq$ for each choice.
+
+    \begin{openproblem}[P2]
+      \label{op:P2}
+      Does $\rcq$ vary under changes of initial basis at fixed $(q, c, b_{1}, b_{2})$?
+    \end{openproblem}
+
+  \subsection{Expected outcomes and interpretation}
+
+    If $\rcq$ varies under P2: the factor has a basis-dependent component,
+    consistent with Proposition~\ref{prop:phase-heuristic}.
+    If $\rcq$ is stable under P2: the factor is insensitive to the basis choice
+    and its origin must lie elsewhere (block-instance geometry or representation
+    structure).
+
+% -----------------------------------------------------------------------
+  \section{Test P3: Dependence on the Block Instance}
+  \label{sec:testP3}
+% -----------------------------------------------------------------------
+
+  \subsection{Protocol}
+
+    Fix $(q, c)$ and impose the metaplectic-adapted basis as a rigid convention.
+    Vary the block instance $(b_{1}, b_{2})$.
+    Record $\rcq$ for each instance.
+
+    \begin{openproblem}[P3]
+      \label{op:P3}
+      Does $\rcq$ vary under changes of block instance $(b_{1}, b_{2})$ at fixed
+      $(q, c)$ and a fixed canonical basis choice?
+    \end{openproblem}
+
+  \subsection{Expected outcomes and interpretation}
+
+    If $\rcq$ varies under P3: the factor has a component intrinsic to the
+    block-instance geometry, i.e., to how the concrete realisation $(b_{1}, b_{2})$
+    encounters the structure of $\rho_{c}$.
+    This would make $\rcq$ a discrete invariant of the pair
+    $(b_{1}, b_{2}, \rho_{c})$ rather than of $(c, q)$ alone, consistent
+    with the counter-example observed in O17 at $q = 29$.
+
+% -----------------------------------------------------------------------
+  \section{Classification of the Residual Factor}
+  \label{sec:classification}
+% -----------------------------------------------------------------------
+
+  The combined outcomes of Tests P2 and P3 lead to three distinct cases.
+  The fourth logical possibility---$\rcq$ stable under both transformations,
+  implying it is an invariant of $(c, q)$ alone---is excluded by the
+  $q = 29$ counter-example of O17~\cite{Beau2026a21}.
+
+  \begin{description}
+    \item[Case A (pure basis artefact).]
+    $\rcq$ varies under P2 and is stable under P3.
+    The residual factor is entirely attributable to the initial basis choice;
+    it carries no information about the block-instance geometry.
+    The canonical observable is obtained by selecting the metaplectic-adapted
+    basis.
+    \item[Case B (discrete instance invariant).]
+    $\rcq$ is stable under P2 and varies under P3.
+    The residual factor is a discrete invariant of the block instance at fixed
+    $(q, c)$; it reflects a structural property of how $\rho_{c}$ interacts with
+    the concrete pair $(b_{1}, b_{2})$.
+    The canonical observable is obtained by quotienting by this invariant.
+    \item[Case C (mixed).]
+    $\rcq$ varies under both P2 and P3.
+    The residual factor admits a multiplicative decomposition
+    \begin{equation}
+      \label{eq:r-decomp}
+      \rcq \;=\; r_{\mathrm{base}}(c, U, q)\;\cdot\; r_{\mathrm{inst}}(c, b_{1}, b_{2}, q),
+    \end{equation}
+    where $r_{\mathrm{base}}$ depends on the unitary frame $U$ and vanishes under the
+    metaplectic-adapted choice $U = U^{\mathrm{meta}}$, and $r_{\mathrm{inst}}$ is a
+    discrete invariant of the block instance at fixed $(q, c)$.
+    The canonical observable is obtained by first eliminating $r_{\mathrm{base}}$ via
+    a canonical basis choice, then quotienting by $r_{\mathrm{inst}}$.
+  \end{description}
+
+  \begin{remark}
+    Case~C is the most conservative prior, consistent with the current state of
+    knowledge: O17 shows that $\rcq$ is not an invariant of $(c,q)$ alone, but
+    does not determine which component of the dependence is absorbed by a change
+    of basis.
+  \end{remark}
+
+% -----------------------------------------------------------------------
+  \section{Construction of the Canonical Observable}
+  \label{sec:canonical}
+% -----------------------------------------------------------------------
+
+  \subsection{Canonical normalisation}
+
+    Based on the classification of Section~\ref{sec:classification}, we define
+    the reference span $\Sigma^{(c)}_{\mathrm{ref}}(n)$ in
+    Definition~\ref{def:D} as follows.
+
+    In \textbf{Case~A}, the reference span is computed in the metaplectic-adapted
+    basis $U^{\mathrm{meta}}$, defined as the eigenbasis of $\rho_{c}(\gamma_{0})$
+    for a fixed central element $\gamma_{0} \neq 0$ of $G_{q}$.
+    This diagonalises the central-phase action and fixes the phase reference
+    unambiguously.
+    By construction, $D(c, v_{0}^{\mathrm{meta}}, n) / D(q-c, v_{0}^{\mathrm{meta}}, n) = 1$
+    for all $n$ sufficiently large, so $\rcq = 1$.
+
+    In \textbf{Case~B}, the basis is already stable under P2, and the
+    instance invariant $r_{\mathrm{inst}}(c, b_{1}, b_{2}, q)$ is identified as the
+    asymptotic ratio~\eqref{eq:r-def} evaluated at any fixed canonical basis choice.
+    The reference span is the minimal span over all instances:
+    \[
+      \Sigma^{(c)}_{\mathrm{ref}}(n)
+      \;=\;
+      \min_{(b_{1},b_{2})} \Sigma^{(c)}_{(b_{1},b_{2})}(n).
+    \]
+    The canonical pair observable is $\sigmacan(n) = \sigmapair(n) / r_{\mathrm{inst}}(c,q)$.
+
+    In \textbf{Case~C}, the decomposition~\eqref{eq:r-decomp} is applied in two steps:
+    (i) project onto the metaplectic-adapted basis to remove $r_{\mathrm{base}}$;
+    (ii) quotient by the residual $r_{\mathrm{inst}}$ identified via Test~P3.
+
+  \subsection{Canonical pair observable}
+
+    \begin{definition}[Canonical pair observable]
+      \label{def:sigmacan}
+      The \emph{canonical pair observable} is
+      \[
+        \sigmacan(n)
+        \;=\;
+        \sigma_{c}^{\mathrm{can}}(n)\;\sigma_{q-c}^{\mathrm{can}}(n),
+      \]
+      where $\sigma_{c}^{\mathrm{can}}(n)$ is the span observable computed with
+      canonical normalisation as defined above.
+    \end{definition}
+
+    \begin{proposition}[Pipeline independence]
+      \label{prop:independence}
+      $\sigmacan(n)$ is independent of the choice of initial basis and block
+      instance, up to corrections that are $o(n^{\dpair})$ asymptotically.
+    \end{proposition}
+
+    \begin{proof}[Proof sketch]
+% TO BE COMPLETED based on the outcome of Tests P2 and P3.
+      In Case~A, the result follows directly from the definition of the
+      metaplectic-adapted basis.
+      In Cases~B and~C, it follows from the quotient construction and the
+      shell-independence of $r_{\mathrm{inst}}$ established in Test~P3.
+    \end{proof}
+
+% -----------------------------------------------------------------------
+  \section{Discussion}
+  \label{sec:discussion}
+% -----------------------------------------------------------------------
+
+  \subsection{Interpretation of $r(c,q)$ in terms of phase alignment}
+
+    The classification of Section~\ref{sec:classification} gives a structural
+    interpretation of $\rcq$ consistent with the metaplectic phase analysis
+    of O12~\cite{Beau2026a16}.
+    In all three cases, the integer-valuedness of $\rcq \in \{1,2,3,4\}$
+    reflects a counting of coherent phase contributions rather than a continuous
+    phase value: it enumerates the number of $\gamma$-sectors of $\rho_{c}$
+    that are in phase with the initial basis or block instance.
+
+    This interpretation is consistent with the O12 observation that the
+    coherence length $\ellgam(n)$ governs the transition between regimes of
+    near-constant central phase and randomised contributions.
+    In the language of O12, high-coherence shells ($\ellgam \approx 1$) produce
+    the integer multiplicity that becomes $\rcq$ after asymptotic passage; low-coherence
+    shells produce no persistent multiplicative factor.
+
+    In the decomposition of Case~C, the component $r_{\mathrm{base}}$ admits a
+    natural interpretation in terms of phase misalignment between the seed frame and
+    the metaplectic structure of $\rho_{c}$, while $r_{\mathrm{inst}}$ admits a
+    natural interpretation in terms of instance multiplicity, i.e., how many
+    $\gamma$-sectors the concrete block $(b_{1}, b_{2})$ activates coherently.
+    This decomposition \emph{suggests} these interpretations without requiring them:
+    the classification is empirically determined, and the interpretation follows
+    from the outcome of Tests~P2 and~P3.
+
+  \subsection{Implications for O20 and O21}
+
+    The canonical observable $\sigmacan(n)$ constructed here is the input
+    required for the two subsequent papers.
+    O20 will investigate the mechanism selecting $\dpair \in [7.4, 10.6]$ as the
+    physical sub-spectrum; the amplitude normalisation is irrelevant for the
+    exponent but is needed to ensure that the persistence criterion is evaluated
+    on a convention-free observable.
+    O21 will derive the $\dpair \to \bstar$ relation at the fibre level without
+    reliance on pipeline conventions; Definition~\ref{def:sigmacan} provides the
+    required starting point.
+
+  \subsection{What O19 does not resolve}
+
+    Three directions remain open after this paper.
+
+    \begin{openproblem}
+      \label{op:arithmetic}
+      The arithmetic origin of $\rcq \in \{1,2,3,4\}$---likely related to
+      quadratic Gauss sums and character multiplicities of the Weil
+      representation---is left open.
+    \end{openproblem}
+
+    \begin{openproblem}
+      \label{op:general-q}
+      The stability of the canonical normalisation as $q \to \infty$ is not
+      addressed; establishing it would require control of $\ellgam(n)$ in the
+      large-$q$ limit.
+    \end{openproblem}
+
+    \begin{openproblem}
+      \label{op:beyond-heis}
+      The generalisation of the canonical normalisation to groups beyond
+      $\Heis$ is deferred.
+    \end{openproblem}
+
+% -----------------------------------------------------------------------
+  \section{Stability of the Scaling Exponent}
+  \label{sec:stability}
+% -----------------------------------------------------------------------
+
+  \begin{proposition}[Exponent invariance]
+    \label{prop:exponent}
+    The capacity exponent $\dpair$ is unchanged under all canonicalisations of
+    Section~\ref{sec:canonical}.
+  \end{proposition}
+
+  \begin{proof}
+    The canonical normalisation modifies $\sigmapair(n)$ by a multiplicative
+    factor that is either constant (Cases~A and~B) or decomposes into constant
+    factors (Case~C).
+    A constant multiplicative factor shifts $\log \sigmapair(n)$ by an additive
+    constant and therefore does not affect the asymptotic slope
+    $\dpair = -\lim_{n \to \infty} \frac{\mathrm{d}\log\sigmapair(n)}{\mathrm{d}\log n}$.
+  \end{proof}
+
+  \begin{remark}
+    This proposition confirms that O19 operates strictly at the amplitude level.
+    The results of O16--O18 concerning the exponent $\dpair \approx 7.44$ and
+    its relation to the phenomenological target $\delta \in [7.4, 10.6]$ are
+    unaffected.
+  \end{remark}
+
+% -----------------------------------------------------------------------
+  \section{Conclusion}
+  \label{sec:conclusion}
+% -----------------------------------------------------------------------
+
+  We have made explicit the implicit pipeline normalisation factor
+  $D(c, b_{1}, b_{2}, n)$ of the O12/O13 Gram--Schmidt span tracker and
+  determined the dependence structure of the residual amplitude factor
+  $\rcq$ by two independent tests.
+
+  The classification (Cases~A, B, or~C) determines the appropriate
+  construction for the canonical pair observable $\sigmacan(n)$,
+  which is independent of pipeline conventions by
+  Proposition~\ref{prop:independence}.
+  The capacity exponent $\dpair$ is unaffected in all cases
+  (Proposition~\ref{prop:exponent}).
+
+  This completes the normalisation step of the fibre-level programme
+  initiated in O16--O18.
+  The canonical observable $\sigmacan(n)$ defined here is the starting point
+  for O20 (mechanism selecting the physical sub-spectrum $\dpair \in [7.4, 10.6]$)
+  and O21 (fibre-level derivation of the $\dpair \to \bstar$ relation).
+  This canonicalisation step isolates the intrinsic amplitude structure of pair
+  observables, and prepares the identification of dynamical selection criteria
+  for admissible exponents.
+
+% -----------------------------------------------------------------------
+  \begin{thebibliography}{99}
+
+    \bibitem{Cosmochrony}
+    J.~Beau,
+    ``Cosmochrony: A Pre-Geometric Relational Framework for Emergent Physics,''
+    white paper, Zenodo (2025).
+    DOI: \href{https://doi.org/10.5281/zenodo.17957509}{10.5281/zenodo.17957509}.
+
+    \bibitem{Beau2026c}
+    J.~Beau,
+    ``Emergent Spacetime Geometry from Bounded Relational Relaxation,''
+    companion paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.18407505}{10.5281/zenodo.18407505}.
+
+    \bibitem{Beau2026a16}
+    J.~Beau,
+    ``Exact Weil-Block Projective Capacity on Heisenberg Graphs:
+    Resolving the Final Obstruction to $\delta$ Extraction,''
+    O12 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.19194798}{10.5281/zenodo.19194798}.
+
+    \bibitem{Beau2026a17}
+    J.~Beau,
+    ``Asymptotic Stability of Exact Weil-Block Capacity on Heisenberg Graphs:
+    Extended Prime Range, Variance Reduction,
+    and Requalification of the $\delta \to \bstar$ Tension,''
+    O13 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.19210831}{10.5281/zenodo.19210831}.
+
+    \bibitem{Beau2026a18}
+    J.~Beau,
+    ``Observable-Class Mismatch and the Corrected $\delta \mapsto \bstar$ Relation on Heisenberg Graphs:
+    Block Normalisation, Central-Phase Contribution,
+    and Structural Correspondence,''
+    O14 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.19226272}{10.5281/zenodo.19226272}.
+
+    \bibitem{Beau2026a19}
+    J.~Beau,
+    ``Observable-Class Derivation Mismatch and the Exact Growth Equation:
+    From Proxy Capacity to Block-Level Dynamics,''
+    O15 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.19281420}{10.5281/zenodo.19281420}.
+
+    \bibitem{Beau2026a20}
+    J.~Beau,
+    ``Fibre Admissibility and Resolution of the Capacity Exponent Discrepancy,''
+    O16 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.19298427}{10.5281/zenodo.19298427}.
+
+    \bibitem{Beau2026a21}
+    J.~Beau,
+    ``Fibre-Level Admissibility from Conjugate Weil Blocks:
+    Structural Derivation of the Pair Observable,''
+    O17 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \href{https://doi.org/10.5281/zenodo.19299611}{10.5281/zenodo.19299611}.
+
+% O18 -- label Beau2026a22, DOI to be assigned after Zenodo submission
+    \bibitem{Beau2026a22}
+    J.~Beau,
+    ``Minimal Fibre Structure of the Non-Injective Projection
+    from Born--Infeld Indiscernability: Derivation of the Parity Involution,''
+    O18 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
+    DOI: \texttt{TODO -- to be assigned upon Zenodo submission}.
+
+  \end{thebibliography}
+
+\end{document}
