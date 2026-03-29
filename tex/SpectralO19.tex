@@ -26,7 +26,7 @@
 \newcommand{\Heis}{\mathrm{Heis}_{3}(\mathbb{Z}/q\mathbb{Z})}
 \newcommand{\ellgam}{\ell_{\gamma}}
 
-% -----------------------------------------------------------------------
+
 \title{Canonical Pair Observables in Weil Blocks:\\
 Structure of the Residual Amplitude Factor and Pipeline-Independent
 Formulation\\[6pt]
@@ -36,7 +36,7 @@ Formulation\\[6pt]
 \small Independent Researcher}
 
 \date{2026}
-% -----------------------------------------------------------------------
+
 
 \begin{document}
   \maketitle
@@ -70,75 +70,77 @@ Formulation\\[6pt]
     fibre-level derivation of the $\dpair \to \bstar$ relation deferred to~O21.
   \end{abstract}
 
-  \tableofcontents
+  \paragraph{Keywords.}
+    spectral admissibility, non-injective projection, Weil representation,
+    Gram–Schmidt process, canonical normalisation, pair observables, amplitude structure
 
-% -----------------------------------------------------------------------
+    \clearpage
+    \tableofcontents
+
+    \clearpage
+
   \section{Introduction}
-    \label{sec:intro}
-% -----------------------------------------------------------------------
+  \label{sec:intro}
 
-    The O-series spectral admissibility sub-programme has progressively refined
-    the observable on Heisenberg Cayley graphs
-    $\mathrm{Cay}(G_{q}, S_{q})$ with $G_{q} = \Heis$ for prime~$q$.
-    Papers O12--O15~\cite{Beau2026a16,Beau2026a17,Beau2026a18,Beau2026a19}
-    established the exact block-level exponent
-    $\hat{\delta}_{\mathrm{exact}} \approx 3.72$, structurally below the
-    phenomenological target $\delta \in [7.4, 10.6]$.
-    O16~\cite{Beau2026a20} identified the resolution: the physically relevant
-    observable lives at the level of conjugate pairs $\{c, q-c\}$, yielding
-    $\dpair = 2\dc \approx 7.44$.
-    O17~\cite{Beau2026a21} provided the structural derivation showing that
-    blocks $c$ and $q-c$ carry identical Gram--Schmidt dynamics ($\delta_{q-c} =
+
+  The O-series spectral admissibility sub-programme has progressively refined
+  the observable on Heisenberg Cayley graphs
+  $\mathrm{Cay}(G_{q}, S_{q})$ with $G_{q} = \Heis$ for prime~$q$.
+  Papers O12--O15~\cite{Beau2026a16,Beau2026a17,Beau2026a18,Beau2026a19}
+  established the exact block-level exponent
+  $\hat{\delta}_{\mathrm{exact}} \approx 3.72$, structurally below the
+  phenomenological target $\delta \in [7.4, 10.6]$.
+  O16~\cite{Beau2026a20} identified the resolution: the physically relevant
+  observable lives at the level of conjugate pairs $\{c, q-c\}$, yielding
+  $\dpair = 2\dc \approx 7.44$.
+  O17~\cite{Beau2026a21} provided the structural derivation showing that
+  blocks $c$ and $q-c$ carry identical Gram--Schmidt dynamics ($\delta_{q-c} =
   \delta_{c}$) and that the factor $\rcq$ is a normalisation artefact, not a
-    structural invariant of $(c,q)$.
-    O18~\cite{Beau2026a22} derived the underlying parity involution
-    $c \leftrightarrow q-c$ from the Born--Infeld evenness of the substrate
-    action, closing the logical gap left in O16--O17.
+  structural invariant of $(c,q)$.
+  O18~\cite{Beau2026a22} derived the underlying parity involution
+  $c \leftrightarrow q-c$ from the Born--Infeld evenness of the substrate
+  action, closing the logical gap left in O16--O17.
 
-    Despite this closure, the pair observable $\sigmapair(n)$ retains a residual
-    amplitude factor $\rcq \in \{1, 2, 3, 4\}$ that depends on the pipeline
-    normalisation $D(c, b_{1}, b_{2}, n)$, currently implicit in the O12/O13
-    implementation~\cite{Beau2026a16,Beau2026a17}.
-    O18 Section~4.3 identifies the construction of a canonical normalisation
-    independent of $(b_{1}, b_{2})$ as the primary open technical task, deferred
-    to the present paper.
+  Despite this closure, the pair observable $\sigmapair(n)$ retains a residual
+  amplitude factor $\rcq \in \{1, 2, 3, 4\}$ that depends on the pipeline
+  normalisation $D(c, b_{1}, b_{2}, n)$, currently implicit in the O12/O13
+  implementation~\cite{Beau2026a16,Beau2026a17}.
+  O18 Section~4.3 identifies the construction of a canonical normalisation
+  independent of $(b_{1}, b_{2})$ as the primary open technical task, deferred
+  to the present paper.
 
-    The goal of O19 is not to assume in advance that $\rcq$ is eliminable.
-    Instead, we first determine its precise dependence structure, then construct
-    the canonical observable appropriate to whichever case holds.
-    The dependence structure of $\rcq$ is not assumed a priori and may follow three distinct
-    scenarios: a pure basis artefact (Case~A, eliminable by canonical choice of initial frame),
-    a discrete instance invariant (Case~B, requiring a canonical quotient), or a mixed quantity
-    admitting a decomposition $\rcq = r_{\mathrm{base}} \cdot r_{\mathrm{inst}}$ with both
-    components (Case~C).
-    All three cases are treated; the classification is determined empirically in
-    Section~\ref{sec:classification}.
+  The goal of O19 is not to assume in advance that $\rcq$ is eliminable.
+  Instead, we first determine its precise dependence structure, then construct
+  the canonical observable appropriate to whichever case holds.
+  The dependence structure of $\rcq$ is not assumed a priori and may follow three distinct
+  scenarios: a pure basis artefact (Case~A, eliminable by canonical choice of initial frame),
+  a discrete instance invariant (Case~B, requiring a canonical quotient), or a mixed quantity
+  admitting a decomposition $\rcq = r_{\mathrm{base}} \cdot r_{\mathrm{inst}}$ with both
+  components (Case~C).
+  All three cases are treated; the classification is determined empirically in
+  Section~\ref{sec:classification}.
 
-    \paragraph{Scope.}
-      O19 does not aim to modify the observable class or the exponent, but to remove the last
-      layer of pipeline dependence at the amplitude level.
-      It does not re-derive $\dpair$, does not revisit the fibre identification of O18, and does
-      not address the $\dpair \to \bstar$ relation, which is the subject of~O21.
+  \paragraph{Scope.}
+    O19 does not aim to modify the observable class or the exponent, but to remove the last
+    layer of pipeline dependence at the amplitude level.
+    It does not re-derive $\dpair$, does not revisit the fibre identification of O18, and does
+    not address the $\dpair \to \bstar$ relation, which is the subject of~O21.
 
+  \paragraph{Organisation.}
+    Section~\ref{sec:pipeline} makes explicit the normalisation factor
+    $D(c, b_{1}, b_{2}, n)$.
+    Section~\ref{sec:phase} relates its structure to the metaplectic central-phase
+    coherence of the Weil representation.
+    Sections~\ref{sec:testP2} and~\ref{sec:testP3} present the two independence
+    tests.
+    Section~\ref{sec:classification} classifies the outcome as Case~A, B, or~C.
+    Section~\ref{sec:canonical} constructs the canonical observable accordingly.
+    Section~\ref{sec:discussion} interprets the result.
+    Section~\ref{sec:stability} verifies that $\dpair$ is unaffected.
+    Section~\ref{sec:conclusion} concludes.
 
-
-    \paragraph{Organisation.}
-      Section~\ref{sec:pipeline} makes explicit the normalisation factor
-      $D(c, b_{1}, b_{2}, n)$.
-      Section~\ref{sec:phase} relates its structure to the metaplectic central-phase
-      coherence of the Weil representation.
-      Sections~\ref{sec:testP2} and~\ref{sec:testP3} present the two independence
-      tests.
-      Section~\ref{sec:classification} classifies the outcome as Case~A, B, or~C.
-      Section~\ref{sec:canonical} constructs the canonical observable accordingly.
-      Section~\ref{sec:discussion} interprets the result.
-      Section~\ref{sec:stability} verifies that $\dpair$ is unaffected.
-      Section~\ref{sec:conclusion} concludes.
-
-% -----------------------------------------------------------------------
   \section{Explicit Form of the Pipeline Normalisation}
   \label{sec:pipeline}
-% -----------------------------------------------------------------------
 
   \subsection{Setup and notation}
 
@@ -347,10 +349,8 @@ $v_{0}$.
     The remainder of this paper addresses only layers 1 and 2; convention
     dependence is fixed by a canonical choice in Section~\ref{sec:canonical}.
 
-% -----------------------------------------------------------------------
   \section{Metaplectic Phase Structure and the Origin of $r(c,q)$}
   \label{sec:phase}
-% -----------------------------------------------------------------------
 
   \subsection{Central-phase coherence in Weil representations}
 
@@ -402,10 +402,8 @@ $v_{0}$.
     $\gamma$-sectors can arise.
     If $\rcq = 1$ in this basis for all primes tested, Case~A is confirmed.
 
-% -----------------------------------------------------------------------
   \section{Test P2: Dependence on the Initial Basis}
   \label{sec:testP2}
-% -----------------------------------------------------------------------
 
   \subsection{Protocol}
 
@@ -428,10 +426,8 @@ $v_{0}$.
     and its origin must lie elsewhere (block-instance geometry or representation
     structure).
 
-% -----------------------------------------------------------------------
   \section{Test P3: Dependence on the Block Instance}
   \label{sec:testP3}
-% -----------------------------------------------------------------------
 
   \subsection{Protocol}
 
@@ -454,10 +450,9 @@ $v_{0}$.
     $(b_{1}, b_{2}, \rho_{c})$ rather than of $(c, q)$ alone, consistent
     with the counter-example observed in O17 at $q = 29$.
 
-% -----------------------------------------------------------------------
   \section{Classification of the Residual Factor}
   \label{sec:classification}
-% -----------------------------------------------------------------------
+
 
   The combined outcomes of Tests P2 and P3 lead to three distinct cases.
   The fourth logical possibility---$\rcq$ stable under both transformations,
@@ -498,10 +493,8 @@ $v_{0}$.
     of basis.
   \end{remark}
 
-% -----------------------------------------------------------------------
   \section{Construction of the Canonical Observable}
   \label{sec:canonical}
-% -----------------------------------------------------------------------
 
   \subsection{Canonical normalisation}
 
@@ -560,10 +553,8 @@ $v_{0}$.
       shell-independence of $r_{\mathrm{inst}}$ established in Test~P3.
     \end{proof}
 
-% -----------------------------------------------------------------------
   \section{Discussion}
   \label{sec:discussion}
-% -----------------------------------------------------------------------
 
   \subsection{Interpretation of $r(c,q)$ in terms of phase alignment}
 
@@ -627,10 +618,9 @@ $v_{0}$.
       $\Heis$ is deferred.
     \end{openproblem}
 
-% -----------------------------------------------------------------------
   \section{Stability of the Scaling Exponent}
   \label{sec:stability}
-% -----------------------------------------------------------------------
+
 
   \begin{proposition}[Exponent invariance]
     \label{prop:exponent}
@@ -654,10 +644,9 @@ $v_{0}$.
     unaffected.
   \end{remark}
 
-% -----------------------------------------------------------------------
   \section{Conclusion}
   \label{sec:conclusion}
-% -----------------------------------------------------------------------
+
 
   We have made explicit the implicit pipeline normalisation factor
   $D(c, b_{1}, b_{2}, n)$ of the O12/O13 Gram--Schmidt span tracker and
@@ -680,72 +669,9 @@ $v_{0}$.
   observables, and prepares the identification of dynamical selection criteria
   for admissible exponents.
 
-% -----------------------------------------------------------------------
+  \clearpage
   \begin{thebibliography}{99}
-
-    \bibitem{Cosmochrony}
-    J.~Beau,
-    ``Cosmochrony: A Pre-Geometric Relational Framework for Emergent Physics,''
-    white paper, Zenodo (2025).
-    DOI: \href{https://doi.org/10.5281/zenodo.17957509}{10.5281/zenodo.17957509}.
-
-    \bibitem{Beau2026c}
-    J.~Beau,
-    ``Emergent Spacetime Geometry from Bounded Relational Relaxation,''
-    companion paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.18407505}{10.5281/zenodo.18407505}.
-
-    \bibitem{Beau2026a16}
-    J.~Beau,
-    ``Exact Weil-Block Projective Capacity on Heisenberg Graphs:
-    Resolving the Final Obstruction to $\delta$ Extraction,''
-    O12 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.19194798}{10.5281/zenodo.19194798}.
-
-    \bibitem{Beau2026a17}
-    J.~Beau,
-    ``Asymptotic Stability of Exact Weil-Block Capacity on Heisenberg Graphs:
-    Extended Prime Range, Variance Reduction,
-    and Requalification of the $\delta \to \bstar$ Tension,''
-    O13 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.19210831}{10.5281/zenodo.19210831}.
-
-    \bibitem{Beau2026a18}
-    J.~Beau,
-    ``Observable-Class Mismatch and the Corrected $\delta \mapsto \bstar$ Relation on Heisenberg Graphs:
-    Block Normalisation, Central-Phase Contribution,
-    and Structural Correspondence,''
-    O14 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.19226272}{10.5281/zenodo.19226272}.
-
-    \bibitem{Beau2026a19}
-    J.~Beau,
-    ``Observable-Class Derivation Mismatch and the Exact Growth Equation:
-    From Proxy Capacity to Block-Level Dynamics,''
-    O15 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.19281420}{10.5281/zenodo.19281420}.
-
-    \bibitem{Beau2026a20}
-    J.~Beau,
-    ``Fibre Admissibility and Resolution of the Capacity Exponent Discrepancy,''
-    O16 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.19298427}{10.5281/zenodo.19298427}.
-
-    \bibitem{Beau2026a21}
-    J.~Beau,
-    ``Fibre-Level Admissibility from Conjugate Weil Blocks:
-    Structural Derivation of the Pair Observable,''
-    O17 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \href{https://doi.org/10.5281/zenodo.19299611}{10.5281/zenodo.19299611}.
-
-% O18 -- label Beau2026a22, DOI to be assigned after Zenodo submission
-    \bibitem{Beau2026a22}
-    J.~Beau,
-    ``Minimal Fibre Structure of the Non-Injective Projection
-    from Born--Infeld Indiscernability: Derivation of the Parity Involution,''
-    O18 spectr.\ adm.\ subprg.\ paper, Zenodo (2026).
-    DOI: \texttt{TODO -- to be assigned upon Zenodo submission}.
-
+    \input{cosmochrony-bibliography}
   \end{thebibliography}
 
 \end{document}
