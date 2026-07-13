@@ -1,6 +1,6 @@
 This repository contains the source of the **O19** Cosmochrony paper  
-[*Canonical Normalisation of Pair Observables in Weil Blocks:
-Eliminating Pipeline Dependence in the Gram–Schmidt Span Tracker*](out/SpectralO19.pdf).
+*Canonical Normalisation of Pair Observables in Weil Blocks:
+Eliminating Pipeline Dependence in the Gram–Schmidt Span Tracker*.
 
 This work extends the **spectral admissibility sub-programme** by resolving the
 next structural issue left open by **O18**:
