@@ -10,22 +10,20 @@ next structural issue left open by **O18**:
 
 # Context
 
-**O18** established that:
+**O18** establishes that:
 
-- the physically relevant observable is defined at the **fibre level**
-- the minimal non-injectivity of the projection \(\Pi\) is the parity involution
-- in the Weil realisation, this minimal fibre is realised as:
-  \[
-  c \leftrightarrow q-c
-  \]
-- therefore the correct observable is the pair-level quantity
+- the Born–Infeld action is even, and parity acting simultaneously on configuration and probe
+  is an **equivariant symmetry** of every Born–Infeld response
+- evenness does **not** force fixed-probe indiscernibility of \(\chi\) and \(-\chi\);
+  the identification of the parity orbit with a fibre of \(\Pi\) is an **open problem**
+- in the Weil realisation, the conjugation identity \(\rho_{q-c} = \overline{\rho_c}\)
+  and \(\delta_{q-c} = \delta_c\) are O17 theorems (recalled in O18 Theorem 3.1), while the
+  identification of \(\{c, q-c\}\) as a physical fibre of \(\Pi\) is an open bridge
+- the pair-level quantity
   \[
   \sigma_{\mathrm{pair}}(n)=\sigma_c(n)\,\sigma_{q-c}(n)
   \]
-
-This closed the foundational gap of **O16–O18**:
-the pair observable is no longer a hypothesis, but a derived consequence of the
-Born–Infeld-induced fibre structure.
+  therefore keeps the status of a **structurally motivated hypothesis**
 
 However, a residual issue remained:
 
@@ -212,13 +210,13 @@ O19 occupies a very specific place in the O-series:
 
 - **O16**: pair observable identified
 - **O17**: pair dynamics derived
-- **O18**: fibre structure derived
+- **O18**: Born–Infeld parity established as an equivariant symmetry; the fibre identification
+  stated as an open problem
 - **O19**: canonical amplitude normalisation derived
 
 Thus:
 
-- the observable is physically justified
-- the fibre structure is structurally grounded
+- the observable is structurally motivated (its fibre reading remains an open bridge)
 - the amplitude is now stripped of residual pipeline dependence
 
 This is the final normalisation step before the physical interpretation of the
@@ -248,14 +246,13 @@ spectral window and the full fibre-level \(\delta\to\beta^*\) derivation.
 
 The spectral admissibility framework is now:
 
-- fibre-level grounded (**O18**)
+- parity-equivariant at the Born–Infeld level (**O18**), with the fibre identification open
 - amplitude-level canonical (**O19**)
 - free of residual pipeline ambiguity at the observable level
 
 The pair observable is now:
 
-- physically justified
-- structurally derived
+- structurally motivated (fibre identification open, O18 Problem 2.8)
 - canonically normalised
 
 
@@ -269,7 +266,7 @@ The main remaining questions are now:
 2. **Full \(\delta_{\mathrm{pair}}\to\beta^*\) derivation (O21)**  
    Derive the relation at the fibre level without pipeline assumptions
 
-3. **Beyond the minimal fibre framework**  
+3. **Beyond the parity-pair framework**  
    Extend the analysis to enriched settings with additional admissible symmetries
 
 4. **Generality beyond the current Weil/Heisenberg setting**  
@@ -282,7 +279,7 @@ The main remaining questions are now:
 The programme is now:
 
 - observationally well-defined (**O17**)
-- structurally grounded (**O18**)
+- parity-equivariant, with the fibre identification stated as an open problem (**O18**)
 - canonically normalised (**O19**)
 
 Remaining work is now concentrated on:
