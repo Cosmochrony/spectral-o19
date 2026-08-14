@@ -13,7 +13,7 @@ next structural issue left open by **O18**:
 **O18** establishes that:
 
 - the Born–Infeld action is even, and parity acting simultaneously on configuration and probe
-  is an **equivariant symmetry** of every Born–Infeld response
+  acts **covariantly** on the Born–Infeld response family (even-order responses preserved, odd-order reversed)
 - evenness does **not** force fixed-probe indiscernibility of \(\chi\) and \(-\chi\);
   the identification of the parity orbit with a fibre of \(\Pi\) is an **open problem**
 - in the Weil realisation, the conjugation identity \(\rho_{q-c} = \overline{\rho_c}\)
@@ -210,7 +210,7 @@ O19 occupies a very specific place in the O-series:
 
 - **O16**: pair observable identified
 - **O17**: pair dynamics derived
-- **O18**: Born–Infeld parity established as an equivariant symmetry; the fibre identification
+- **O18**: Born–Infeld parity established as a covariance of the response family; the fibre identification
   stated as an open problem
 - **O19**: canonical amplitude normalisation derived
 
