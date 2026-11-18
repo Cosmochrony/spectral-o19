@@ -219,8 +219,8 @@ Thus:
 - the observable is structurally motivated (its fibre reading remains an open bridge)
 - the amplitude is now stripped of residual pipeline dependence
 
-This is the final normalisation step before the physical interpretation of the
-spectral window and the full fibre-level \(\delta\to\beta^*\) derivation.
+This is the final normalisation step before the comparison with the historical range
+\([7.4,10.6]\) and the fibre-level study of the historical \(\delta\to\beta^*\) prescription.
 
 
 # What O19 Adds
@@ -260,11 +260,11 @@ The pair observable is now:
 
 The main remaining questions are now:
 
-1. **Spectral window selection (O20)**  
-   Explain the restriction to \([7.4,10.6]\) through a dynamical persistence criterion
+1. **Persistence criterion (O20)**  
+   Compare a dynamical persistence criterion with the historical comparison range \([7.4,10.6]\)
 
-2. **Full \(\delta_{\mathrm{pair}}\to\beta^*\) derivation (O21)**  
-   Derive the relation at the fibre level without pipeline assumptions
+2. **Fibre-level \(\delta_{\mathrm{pair}}\to\beta^*\) prescription (O21)**  
+   Examine the historical reciprocal prescription at the fibre level without pipeline assumptions
 
 3. **Beyond the parity-pair framework**  
    Extend the analysis to enriched settings with additional admissible symmetries
@@ -284,7 +284,7 @@ The programme is now:
 
 Remaining work is now concentrated on:
 
-- dynamical selection of the admissible exponent window
+- a dynamical persistence criterion, compared with the historical exponent range
 - full fibre-level cascade interpretation
 - extension beyond the current spectral realisation
 

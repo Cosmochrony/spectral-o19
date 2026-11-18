@@ -3,5 +3,6 @@
   "web_url": "https://cosmochrony.org/science/spectral/program/o19/",
   "main_tex": "tex/SpectralO19.tex",
   "zenodo_id": 19323720,
-  "doi": "10.5281/zenodo.19323720"
+  "doi": "10.5281/zenodo.19323720",
+  "notes": "Version 1.2 (alpha-2). Identifies the interval [7.4, 10.6] as a historical comparison range, not a physical sub-spectrum to be selected, and the delta_pair to beta* step as the historical prescription examined in O21, not a derivation. The classification of the residual amplitude factor, the canonical pair observable and the exponent invariance are unchanged."
 }
