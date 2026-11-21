@@ -71,8 +71,11 @@ Normalisation with Open Tests\\[6pt]
     eliminable by canonical choice), a discrete instance invariant (Case~B,
     requiring a canonical quotient), or a mixed quantity with both components
     (Case~C, requiring a decomposition $r = r_{\mathrm{base}}\,r_{\mathrm{inst}}$).
-    The tests are posed as open problems and are not carried out here, so the case is not
-    identified.
+    For the residual factor as defined here, an asymptotic limit, the cumulative spans reach $q$
+    on the finite Cayley graph, so $\rcq \equiv 1$ for every seed and block instance
+    (Lemma~2.4): the fourth case holds and Cases~A--C cannot occur.
+    They, and the tests, remain meaningful only for a residual factor defined on a pre-saturation
+    window, which is not defined here and for which the tests are open.
     For each case we give the construction of a canonical observable $\sigmacan(n)$ that would
     follow and relate it heuristically to the metaplectic central-phase coherence $\ellgam(n)$
     of~O12; its independence from pipeline conventions is stated as an open problem, not proved.
@@ -124,7 +127,9 @@ Normalisation with Open Tests\\[6pt]
   about other observables or normalisations.
   O17~\cite{Beau2026a21} shows, within its own toy model only, that any variation of $\rcq$
   would reside entirely in the normalisation $D$.
-  The present paper treats a non-trivial $\rcq$ as a hypothesis.
+  For its own asymptotic definition of $\rcq$, the present paper shows that $\rcq \equiv 1$
+  (Lemma~\ref{lem:rank-seed} and the consequence stated after Remark~\ref{cor:D-asymptotic}); a
+  non-trivial factor is treated as a hypothesis about a pre-saturation quantity.
   O18 Section~4.3 lists the construction of a canonical normalisation
   independent of $(b_{1}, b_{2})$ among its open directions, deferred
   to the present paper.
@@ -138,9 +143,10 @@ Normalisation with Open Tests\\[6pt]
   a discrete instance invariant (Case~B, requiring a canonical quotient), or a mixed quantity
   admitting a decomposition $\rcq = r_{\mathrm{base}} \cdot r_{\mathrm{inst}}$ with both
   components (Case~C).
-  All three cases are treated; the classification would be determined empirically by the
-  tests of Sections~\ref{sec:testP2}--\ref{sec:testP3}, which are posed here as open problems
-  and not carried out.
+  All three cases are treated; for the factor of Definition~\ref{def:D} the classification is
+  settled by Lemma~\ref{lem:rank-seed} (the fourth case holds), and for a pre-saturation factor it
+  would be determined empirically by the tests of Sections~\ref{sec:testP2}--\ref{sec:testP3},
+  which are posed here as open problems and not carried out.
 
   \paragraph{Scope.}
     O19 does not aim to modify the observable class or the exponent, but to state how the last
@@ -253,12 +259,14 @@ Normalisation with Open Tests\\[6pt]
         \log \Sigma^{(q-c)}_{(b_{1},b_{2})}(n)
         \Bigr),
       \end{equation}
-      assumed to exist and to be finite.
+      whenever it exists.
       Equivalently, $\rcq = \lim_{n\to\infty} D(c,b_{1},b_{2},n) / D(q-c,b_{1},b_{2},n)$.
-      The convergence is in the ordinary sense (not limsup), and its existence is assumed.
-      On O16's contract, where the conjugate ratio is taken on the exact block observable
-      $\Sigma_n^{(c_1,c_2,c_3)}$ of the O12/O13 pipeline, O16's conjugate-block identity gives~$1$;
-      that the ratio defined here coincides with that one is not established.
+      The convergence is in the ordinary sense (not limsup).
+      By Lemma~\ref{lem:rank-seed} below, the limit exists and equals~$0$, so that $\rcq = 1$ for
+      every block instance and seed.
+      Independently, on O16's contract, where the conjugate ratio is taken on the exact block
+      observable $\Sigma_n^{(c_1,c_2,c_3)}$ of the O12/O13 pipeline, O16's conjugate-block identity
+      also gives~$1$.
     \end{definition}
 
     \begin{remark}
@@ -266,8 +274,11 @@ Normalisation with Open Tests\\[6pt]
       Definition~\ref{def:D} separates two logically distinct objects: the shell-by-shell ratio $D$,
       which depends on $n$, and the asymptotic residual $\rcq$, which is $n$-independent by
       construction.
-      Whether the limit~\eqref{eq:r-def} is independent of $(b_{1}, b_{2})$ is precisely what
-      the tests of Sections~\ref{sec:testP2}--\ref{sec:testP3} determine.
+      Versions up to~1.2 left the dependence of the limit~\eqref{eq:r-def} on $(b_{1}, b_{2})$ to
+      the tests of Sections~\ref{sec:testP2}--\ref{sec:testP3}; by Lemma~\ref{lem:rank-seed} the
+      limit does not depend on them.
+      The tests remain meaningful only for a residual factor defined on a pre-saturation window,
+      which this paper does not define.
     \end{remark}
 
   \subsection{Closed-form expression for $D$ and its seed dependence}
@@ -307,43 +318,53 @@ Normalisation with Open Tests\\[6pt]
 
     \begin{lemma}[Seed dependence of the rank]
       \label{lem:rank-seed}
-      For a fixed prime $q$, character $c$, and depth~$n$, the rank
-      $\Sigma^{(c)}_{(b_{1},b_{2})}(n) = \mathrm{rank}[\rho_{c}(g)\,v_{0}]_{g \in B_{n}}$
-      is lower-semicontinuous in $v_{0} \in \mathbb{C}^{q} \setminus \{0\}$:
-      it is generically equal to $\min(|B_{n}|, q)$, and can drop on a measure-zero set
-      of seeds.
-      In particular, the asymptotic span $\Sigma^{(c)}_{(b_{1},b_{2})}(n) \to q$ for $n$
-      large enough, independently of $v_{0}$, provided the orbit of $\rho_{c}$ spans
-      $\mathbb{C}^{q}$ (which holds for irreducible $\rho_{c}$~\cite{Beau2026a20}).
+      Fix a prime $q$ and $c \in (\mathbb{Z}/q\mathbb{Z})^{\times}$.
+      \begin{enumerate}
+        \item[(i)] For fixed~$n$, the rank
+        $\Sigma^{(c)}_{(b_{1},b_{2})}(n) = \mathrm{rank}[\rho_{c}(g)\,v_{0}]_{g \in B_{n}}$
+        is lower-semicontinuous in $v_{0} \in \mathbb{C}^{q} \setminus \{0\}$; it equals its
+        maximal value $r_{\max}(c,n) \le \min(|B_{n}|, q)$ outside a proper algebraic subset of
+        seeds.
+        \item[(ii)] For every $n$ at least the diameter of $\mathrm{Cay}(G_q, S_q)$ and every
+        $v_{0} \neq 0$, $\Sigma^{(c)}_{(b_{1},b_{2})}(n) = q$.
+      \end{enumerate}
     \end{lemma}
 
-    \begin{proof}[Proof sketch]
-The rank function on the columns of a matrix is lower-semicontinuous in the
-matrix entries, since it is the minimum size of a non-vanishing minor.
-For generic $v_{0}$, no accidental linear dependence occurs among
-$\rho_{c}(g)\,v_{0}$ for $g \in B_{n}$, so the rank achieves its maximum.
-The irreducibility of $\rho_{c}$ guarantees that the full orbit $\{\rho_{c}(g)\,v_{0}
-: g \in G_{q}\}$ spans $\mathbb{C}^{q}$, so $\Sigma^{(c)} \to q$ for all non-degenerate
-$v_{0}$.
+    \begin{proof}
+      (i) The rank is at least $k$ exactly when some $k \times k$ minor of the
+      $q \times |B_n|$ orbit matrix is non-zero; the minors are polynomials in the entries
+      of $v_0$, so $\{v_0 : \mathrm{rank} \ge k\}$ is open and, for $k = r_{\max}(c,n)$,
+      the complement of the common zero set of those minors, a proper algebraic subset.
+      The bound $\min(|B_n|, q)$ need not be attained: for instance the orbit vectors of
+      $g$ and $gz$, with $z$ central, are proportional.
+      (ii) For $n$ at least the diameter, $B_n = G_q$.
+      The span of $\{\rho_c(g)\,v_0 : g \in G_q\}$ is a non-zero $\rho_c$-invariant subspace of
+      $\mathbb{C}^q$, hence all of $\mathbb{C}^q$, since the Weil representation $\rho_c$ with
+      non-trivial central character is irreducible~\cite{Beau2026a20}.
     \end{proof}
 
-    \begin{corollary}[Asymptotic independence of $D$]
+    \begin{remark}[Former Corollary~2.5 withdrawn]
       \label{cor:D-asymptotic}
-      For irreducible $\rho_{c}$ and generic $v_{0}$,
-      $\Sigma^{(c)}_{(b_{1},b_{2})}(n) \sim A(c, b_{1}, b_{2})\, n^{\dc}$
-      asymptotically, where the amplitude $A(c, b_{1}, b_{2})$ depends on
-      the seed but the exponent $\dc$ does not.
-      The ratio $D(c, b_{1}, b_{2}, n) \to A(c, b_{1}, b_{2}) / A_{\mathrm{ref}}(c)$
-      as $n \to \infty$, which is the amplitude factor absorbed into $\rcq$.
-    \end{corollary}
+      Versions up to~1.2 stated, as Corollary~2.5, that for generic $v_0$
+      $\Sigma^{(c)}_{(b_{1},b_{2})}(n) \sim A(c, b_{1}, b_{2})\, n^{\dc}$ asymptotically, with
+      $D(c, b_{1}, b_{2}, n) \to A(c, b_{1}, b_{2}) / A_{\mathrm{ref}}(c)$ absorbed into $\rcq$.
+      This is withdrawn: $\Sigma^{(c)}$ is bounded by $q$ and equals $q$ from the diameter on
+      (Lemma~\ref{lem:rank-seed}), so it has no asymptotic power law, and $\dc$ is the decay
+      exponent of $\sigma_c$ on a pre-saturation window, not a growth exponent of $\Sigma^{(c)}$.
+    \end{remark}
 
     \noindent
-    Corollary~\ref{cor:D-asymptotic} makes precise the sense in which $\rcq$ is a
-    seed-dependent amplitude ratio: it is the ratio of the asymptotic prefactors of
-    $\sigma_{c}$ and $\sigma_{q-c}$, both computed with the same seed $v_{0}$.
-    The factor $\rcq$ encodes \emph{only} the relative alignment of $v_{0}$ with the
-    orbit geometries of $\rho_{c}$ and $\rho_{q-c}$ respectively, not any property of
-    the exponents.
+    \emph{Consequence for the residual factor.}
+    By Lemma~\ref{lem:rank-seed}(ii), for every block instance $(b_1,b_2)$ and every seed,
+    $\Sigma^{(c)}_{(b_1,b_2)}(n) = \Sigma^{(q-c)}_{(b_1,b_2)}(n) = q$ for $n$ at least the
+    diameter, so the limit~\eqref{eq:r-def} exists and $\rcq = 1$; likewise $D \to 1$ for any
+    reference span that also reaches~$q$.
+    For $\rcq$ as defined in Definition~\ref{def:D}, Cases~A--C of
+    Section~\ref{sec:classification} therefore cannot occur: the fourth case holds, Open
+    Problems~\ref{op:P2} and~\ref{op:P3} have a negative answer, and $\sigmacan = \sigmapair$.
+    A non-trivial residual factor could only be defined as a ratio on a pre-saturation window,
+    where $\Sigma^{(c)}$ does depend on the seed (Lemma~\ref{lem:rank-seed}(i)); this paper does
+    not define such a ratio, and Tests~P2 and~P3 remain meaningful only for it.
 
   \subsection{Three layers of dependence}
 
@@ -485,11 +506,14 @@ $v_{0}$.
   not excluded: within its toy model, the $q = 29$ check of O17~\cite{Beau2026a21} verifies the
   raw-count block-independence identity; it computes no normalised $\rcq$, so it gives no evidence
   of a variation of $\rcq$.
-  In this fourth case no canonicalisation is needed and $\sigmacan = \sigmapair$; on O16's contract
-  the conjugate ratio of the exact block observable is $1$, so no canonicalisation is needed for that
-  observable, but that it coincides with the ratio defined here is not established.
-  Tests P2 and P3 concern the normalisation parametrised by $(b_{1}, b_{2})$, whose relation to the
-  pipeline's block index $(c_1,c_2,c_3)$ is not given (O17).
+  For $\rcq$ as defined in Definition~\ref{def:D}, this fourth case is the one that holds
+  (Lemma~\ref{lem:rank-seed} and the consequence stated after Remark~\ref{cor:D-asymptotic}), and
+  no canonicalisation is needed: $\sigmacan = \sigmapair$.
+  Independently, on O16's contract the conjugate ratio of the exact block observable is also~$1$.
+  Tests P2 and P3, and Cases~A--C below, are meaningful only for a residual factor defined on a
+  pre-saturation window, which this paper does not define; they concern the normalisation
+  parametrised by $(b_{1}, b_{2})$, whose relation to the pipeline's block index $(c_1,c_2,c_3)$ is
+  not given (O17).
 
   \begin{description}
     \item[Case A (pure basis artefact).]
@@ -581,10 +605,13 @@ $v_{0}$.
     \begin{remark}
       Versions up to~1.2 stated this independence as Proposition~7.2 with a proof sketch that
       depended on the outcome of Tests~P2 and~P3.
-      Those tests are open (Open Problems~\ref{op:P2} and~\ref{op:P3}), so the case is not
-      identified, $r_{\mathrm{inst}}$ is not established to be shell-independent, and the
-      statement is not proved.
-      It is withdrawn as a result and kept as an open problem, with its number.
+      The statement is not proved and is withdrawn as a result, kept as an open problem with its
+      number.
+      For the factor of Definition~\ref{def:D}, Lemma~\ref{lem:rank-seed} gives $\rcq \equiv 1$ and
+      $\sigmacan = \sigmapair$, and on the finite graph the asymptotic statement is then trivial past
+      saturation; the meaningful question concerns the pre-saturation window, where the seed
+      dependence of $\Sigma^{(c)}$ (Lemma~\ref{lem:rank-seed}(i)) is not controlled and the question
+      remains open.
       In Case~A it would follow from the definition of the metaplectic-adapted basis; in
       Cases~B and~C it would require the shell-independence of $r_{\mathrm{inst}}$.
     \end{remark}
@@ -616,14 +643,15 @@ $v_{0}$.
     $\gamma$-sectors the concrete block $(b_{1}, b_{2})$ activates coherently.
     This decomposition \emph{suggests} these interpretations without requiring them:
     the classification would be determined empirically, and the interpretation would follow
-    from the outcome of Tests~P2 and~P3, which are open.
+    from the outcome of Tests~P2 and~P3 for a pre-saturation factor, which are open.
 
   \subsection{Implications for O20 and O21}
 
     The canonical observable $\sigmacan(n)$ proposed here would be the input
-    required for the two subsequent papers; since its case is not identified and its
-    pipeline independence is open (Open Problem~\ref{prop:independence}), those papers cannot
-    import it as a constructed, convention-free observable.
+    required for the two subsequent papers; since a non-trivial canonicalisation would concern a
+    pre-saturation factor not defined here, and pipeline independence in the pre-saturation window
+    is open (Open Problem~\ref{prop:independence}), those papers cannot import it as a constructed,
+    convention-free observable.
     O20 will investigate a persistence criterion and its comparison with the
     historical comparison range $\dpair \in [7.4, 10.6]$; the amplitude normalisation is irrelevant for the
     exponent but is needed to ensure that the persistence criterion is evaluated
@@ -690,7 +718,10 @@ $v_{0}$.
   We have made explicit the implicit pipeline normalisation factor
   $D(c, b_{1}, b_{2}, n)$ of the O12/O13 Gram--Schmidt span tracker and
   formulated two independence tests for the residual amplitude factor $\rcq$.
-  The tests are open, so the dependence structure of $\rcq$ is not determined.
+  For the factor as defined, an asymptotic limit, Lemma~\ref{lem:rank-seed} gives $\rcq \equiv 1$
+  for every seed and block instance, so the fourth case holds and $\sigmacan = \sigmapair$; a
+  non-trivial factor would need a pre-saturation definition, for which the tests are open.
+  The former Corollary~2.5, an asymptotic power law for $\Sigma^{(c)}$, is withdrawn.
 
   The classification (Cases~A, B, or~C) would determine the appropriate
   construction for the canonical pair observable $\sigmacan(n)$; its independence
