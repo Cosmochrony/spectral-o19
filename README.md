@@ -1,7 +1,6 @@
 This repository contains the source of the **O19** Cosmochrony paper
-*Canonical Pair Observables in Weil Blocks: The Residual Amplitude Factor and a Proposed Canonical
-Normalisation with Open Tests* (titled *… Structure of the Residual Amplitude Factor and
-Pipeline-Independent Formulation* up to version 1.2).
+*Canonical Pair Observables in Weil Blocks: Exact Saturation and the Limits of a Proposed Canonical Normalisation*
+(titled *… Structure of the Residual Amplitude Factor and Pipeline-Independent Formulation* up to version 1.2).
 
 **Version 1.3.** For the residual factor as the paper defines it, an asymptotic limit, the corrected
 Lemma 2.4 shows that the cumulative spans reach $q$ on the finite Cayley graph for every non-zero seed,
@@ -86,8 +85,7 @@ paper/
 If you reference this work, please cite:
 
 J. Beau,
-Canonical Pair Observables in Weil Blocks: The Residual Amplitude Factor
-and a Proposed Canonical Normalisation with Open Tests,
+Canonical Pair Observables in Weil Blocks: Exact Saturation and the Limits of a Proposed Canonical Normalisation,
 Zenodo, 2026.
 
 # Acknowledgements
