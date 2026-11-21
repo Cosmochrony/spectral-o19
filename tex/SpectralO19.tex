@@ -103,10 +103,11 @@ Normalisation with Open Tests\\[6pt]
   O16~\cite{Beau2026a20} proposed that the physically relevant
   observable lives at the level of conjugate pairs $\{c, q-c\}$, yielding
   $\dpair = 2\dc \approx 7.44$.
-  O17~\cite{Beau2026a21} provided the structural derivation showing that
-  blocks $c$ and $q-c$ carry identical Gram--Schmidt dynamics ($\delta_{q-c} =
-  \delta_{c}$) and that the factor $\rcq$ is a normalisation artefact, not a
-  structural invariant of $(c,q)$.
+  Within its own toy model, O17~\cite{Beau2026a21} shows that the raw Gram--Schmidt
+  dynamics of blocks $c$ and $q-c$ coincide, so that any variation of the factor $\rcq$ would
+  reside in the normalisation; none of this is asserted there for the O12/O13 pipeline, on
+  which the equality of the conjugate exponents follows instead from O16's conjugate-block
+  identity within O16's contract.
   O18~\cite{Beau2026a22} establishes Born--Infeld parity as a covariance of the substrate action's response family
   and states the identification of the parity orbit $\{c, q-c\}$ with a fibre of $\Pi$ as an open problem;
   the pair observable of O16--O17 therefore retains the status of a structurally motivated hypothesis.
@@ -252,9 +253,8 @@ Normalisation with Open Tests\\[6pt]
       \end{equation}
       assumed to exist and to be finite.
       Equivalently, $\rcq = \lim_{n\to\infty} D(c,b_{1},b_{2},n) / D(q-c,b_{1},b_{2},n)$.
-      The convergence is in the ordinary sense (not limsup); its existence for the primes
-      tested is an empirical input from O16--O17, where the ratio stabilises to an
-      integer value.
+      The convergence is in the ordinary sense (not limsup), and its existence is assumed;
+      on O16's contract (the real O12/O13 pipeline) the ratio is identically~$1$.
     \end{definition}
 
     \begin{remark}
@@ -396,8 +396,9 @@ $v_{0}$.
       mismatch between the initial basis $(b_{1}, b_{2})$ and the natural
       metaplectic phase structure of $\rho_{c}$.
       In the high-coherence regime ($\ellgam \approx 1$), this mismatch manifests
-      as a constant multiplicative factor on $\Sigma^{(c)}(n)$, producing integer
-      values $\rcq \in \{1, 2, 3, 4\}$.
+      as a constant multiplicative factor on $\Sigma^{(c)}(n)$, which would produce
+      integer values such as the reported $\rcq \in \{1, 2, 3, 4\}$ if those values were
+      confirmed.
     \end{proposition}
 
     \begin{remark}
@@ -419,7 +420,9 @@ $v_{0}$.
     In this basis, the phase $e^{2\pi i c\,\gamma/q}$ contributes a diagonal
     factor to every group element, and no interference between different
     $\gamma$-sectors can arise.
-    If $\rcq = 1$ in this basis for all primes tested, Case~A is confirmed.
+    Case~A would be confirmed if $\rcq$ varied under P2 and equalled $1$ in this basis for all
+    primes tested; $\rcq = 1$ alone confirms nothing, since it also holds in the fourth case
+    below.
 
   \section{Test P2: Dependence on the Initial Basis}
   \label{sec:testP2}
@@ -475,8 +478,13 @@ $v_{0}$.
   The combined outcomes of Tests P2 and P3 would lead to one of the three cases below.
   A fourth logical possibility---$\rcq$ stable under both transformations,
   hence an invariant of $(c, q)$ alone, including the trivial value $\rcq \equiv 1$---is
-  not excluded: the $q = 29$ computation of O17~\cite{Beau2026a21} checks the block-independence
-  identity and exhibits no variation of $\rcq$.
+  not excluded: within its toy model, the $q = 29$ check of O17~\cite{Beau2026a21} verifies the
+  raw-count block-independence identity; it computes no normalised $\rcq$, so it gives no evidence
+  of a variation of $\rcq$.
+  In this fourth case, which holds on O16's contract with $\rcq \equiv 1$, no canonicalisation is
+  needed and $\sigmacan = \sigmapair$.
+  Tests P2 and P3 concern the normalisation parametrised by $(b_{1}, b_{2})$, whose relation to the
+  pipeline's block index $(c_1,c_2,c_3)$ is not given (O17).
 
   \begin{description}
     \item[Case A (pure basis artefact).]
@@ -584,17 +592,17 @@ $v_{0}$.
     The classification of Section~\ref{sec:classification} gives a structural
     interpretation of $\rcq$ consistent with the metaplectic phase analysis
     of O12~\cite{Beau2026a16}.
-    In all three cases, the integer-valuedness of $\rcq \in \{1,2,3,4\}$
-    reflects a counting of coherent phase contributions rather than a continuous
-    phase value: it enumerates the number of $\gamma$-sectors of $\rho_{c}$
+    In all three cases, the integer-valuedness of the reported values $\rcq \in \{1,2,3,4\}$,
+    if those values were confirmed, would reflect a counting of coherent phase contributions rather than a continuous
+    phase value: it would enumerate the number of $\gamma$-sectors of $\rho_{c}$
     that are in phase with the initial basis or block instance.
 
     This interpretation is consistent with the O12 observation that the
     coherence length $\ellgam(n)$ governs the transition between regimes of
     near-constant central phase and randomised contributions.
-    In the language of O12, high-coherence shells ($\ellgam \approx 1$) produce
-    the integer multiplicity that becomes $\rcq$ after asymptotic passage; low-coherence
-    shells produce no persistent multiplicative factor.
+    In the language of O12, high-coherence shells ($\ellgam \approx 1$) would produce
+    the integer multiplicity that becomes a non-trivial $\rcq$ after asymptotic passage;
+    low-coherence shells would produce no persistent multiplicative factor.
 
     In the decomposition of Case~C, the component $r_{\mathrm{base}}$ admits a
     natural interpretation in terms of phase misalignment between the seed frame and

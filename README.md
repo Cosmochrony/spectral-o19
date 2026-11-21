@@ -8,8 +8,8 @@ to construct a pipeline-independent canonical observable. Tests P2 and P3 are po
 and are not carried out; the former Proposition 7.2 (pipeline independence) had only a proof sketch
 depending on those tests and is withdrawn as a result: it is kept, with its number, as Open
 Problem 7.2. The former exclusion of the fourth case "by the q = 29 counter-example of O17" is
-withdrawn: O17's q = 29 computation checks the block-independence identity and shows no variation
-of the factor.
+withdrawn: within its toy model, O17's q = 29 check verifies the raw-count block-independence identity
+and computes no normalised factor, so it gives no evidence of a variation.
 
 ## Question
 
@@ -30,11 +30,14 @@ Three statements are kept apart:
 
 ## What the paper establishes
 
-- the implicit pipeline normalisation $D(c,b_1,b_2,n)$ made explicit (Definition 2.2), with the
-  phase invariance of the residual Gram–Schmidt increment (Lemma 2.1), the seed dependence of the
-  rank (Lemma 2.4) and the asymptotic statement of Corollary 2.5;
+- the implicit pipeline normalisation $D(c,b_1,b_2,n)$ made explicit (Definition 2.2; the existence
+  of the limit defining $r$ is assumed) and the phase invariance of the residual Gram–Schmidt increment
+  (Lemma 2.1);
 - a constant multiplicative factor leaves the capacity exponent $\delta_{\mathrm{pair}}$ unchanged
   (Proposition 9.1).
+
+Lemma 2.4 (seed dependence of the rank) and Corollary 2.5 are kept unchanged but are not re-audited
+in this version.
 
 ## What the paper proposes, without establishing it
 
@@ -42,7 +45,8 @@ Three statements are kept apart:
   fixed basis), posed as Open Problems 4.1 and 5.1;
 - a classification of their possible outcomes (Case A: basis artefact; Case B: instance invariant;
   Case C: mixed, $r=r_{\mathrm{base}}\,r_{\mathrm{inst}}$); a fourth case, $r$ an invariant of $(c,q)$
-  alone, including $r\equiv1$, is not excluded;
+  alone, including $r\equiv1$, is not excluded, and on O16's contract it holds with $r\equiv1$, so
+  that no canonicalisation is needed there;
 - for each case, the construction of a canonical pair observable
   $\sigma_{\mathrm{pair}}^{\mathrm{can}}(n)$ that would follow (Definition 7.1);
 - its pipeline independence, now Open Problem 7.2.
@@ -58,7 +62,7 @@ Three statements are kept apart:
 ## Position in the sequence
 
 - **O16**: pair observable introduced; on the real pipeline $r\equiv1$ within its contract
-- **O17**: pair dynamics derived; toy-model scope for the normalisation statement
+- **O17**: raw pair dynamics and the normalisation statement, both within its toy model
 - **O18**: Born–Infeld parity established as a covariance of the response family; the fibre
   identification stated as an open problem
 - **O19**: proposed canonical normalisation, with open tests
