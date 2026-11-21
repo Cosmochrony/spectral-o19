@@ -58,7 +58,7 @@ Normalisation with Open Tests\\[6pt]
     initialisation parameters $(b_{1}, b_{2})$, was reported in earlier work; those values are not
     reproduced, and on the real O12/O13 pipeline the exact conjugate-block identity of O16 forces
     $\rcq \equiv 1$ within O16's contract.
-    The factor is treated here as a hypothesis.
+    A non-trivial factor is treated here as a hypothesis about a pre-saturation quantity.
     The present paper begins by making explicit the implicit normalisation factor
     $D(c, b_{1}, b_{2}, n)$ of the O12/O13 implementation, separating its
     dependence on the initial basis, the block instance, and the normalisation
@@ -67,7 +67,7 @@ Normalisation with Open Tests\\[6pt]
     change at fixed block instance (Test~P2), and variation under block-instance
     change at rigidly fixed basis (Test~P3).
     Three non-trivial outcomes are considered, alongside a fourth (an invariant of $(c,q)$,
-    including $\rcq \equiv 1$) that is not excluded: $\rcq$ is a pure basis artefact (Case~A,
+    including $\rcq \equiv 1$), which is the one that holds for the factor as defined here: $\rcq$ is a pure basis artefact (Case~A,
     eliminable by canonical choice), a discrete instance invariant (Case~B,
     requiring a canonical quotient), or a mixed quantity with both components
     (Case~C, requiring a decomposition $r = r_{\mathrm{base}}\,r_{\mathrm{inst}}$).
@@ -192,7 +192,7 @@ Normalisation with Open Tests\\[6pt]
     dimension factor as specified in the O12/O13 pipeline~\cite{Beau2026a16}).
     The amplitude factor $\rcq$ originates in $\Sigma^{(c)}$ and propagates unchanged
     into $\sigma_{c}$.
-    This distinction is essential: the asymptotic exponent $\dc$ is defined at the level
+    This distinction is essential: the exponent $\dc$, fitted on a pre-saturation window, is defined at the level
     of $\sigma_{c}(n)$, while the residual factor $\rcq$ originates at the level of
     $\Sigma^{(c)}(n)$.
 
@@ -260,7 +260,8 @@ Normalisation with Open Tests\\[6pt]
         \Bigr),
       \end{equation}
       whenever it exists.
-      Equivalently, $\rcq = \lim_{n\to\infty} D(c,b_{1},b_{2},n) / D(q-c,b_{1},b_{2},n)$.
+      Equivalently, $\rcq = \lim_{n\to\infty} D(c,b_{1},b_{2},n) / D(q-c,b_{1},b_{2},n)$ when the two
+      reference spans have ratio tending to~$1$ (as they do when both reach~$q$).
       The convergence is in the ordinary sense (not limsup).
       By Lemma~\ref{lem:rank-seed} below, the limit exists and equals~$0$, so that $\rcq = 1$ for
       every block instance and seed.
@@ -361,7 +362,7 @@ Normalisation with Open Tests\\[6pt]
     reference span that also reaches~$q$.
     For $\rcq$ as defined in Definition~\ref{def:D}, Cases~A--C of
     Section~\ref{sec:classification} therefore cannot occur: the fourth case holds, Open
-    Problems~\ref{op:P2} and~\ref{op:P3} have a negative answer, and $\sigmacan = \sigmapair$.
+    Problems~\ref{op:P2} and~\ref{op:P3} have a negative answer, and one takes $\sigmacan := \sigmapair$.
     A non-trivial residual factor could only be defined as a ratio on a pre-saturation window,
     where $\Sigma^{(c)}$ does depend on the seed (Lemma~\ref{lem:rank-seed}(i)); this paper does
     not define such a ratio, and Tests~P2 and~P3 remain meaningful only for it.
@@ -376,7 +377,7 @@ Normalisation with Open Tests\\[6pt]
       orthonormalisation order implicitly defines a reference frame in
       $\mathbb{C}^{q}$.
       Different frames produce different increments $\Delta\Sigma^{(c)}$ at small
-      $n$, with effects that may or may not persist asymptotically.
+      $n$; by Lemma~\ref{lem:rank-seed}(ii) these effects disappear once the span saturates at~$q$.
       \item \emph{Block-instance dependence.}
       The pair $(b_{1}, b_{2})$ specifies a concrete realisation of the block at
       character~$c$.
@@ -417,7 +418,7 @@ Normalisation with Open Tests\\[6pt]
 
     \begin{proposition}[Informal]
       \label{prop:phase-heuristic}
-      The factor $\rcq$ is the shell-asymptotic residue of a phase-alignment
+      A non-trivial pre-saturation analogue of $\rcq$ would be the residue of a phase-alignment
       mismatch between the initial basis $(b_{1}, b_{2})$ and the natural
       metaplectic phase structure of $\rho_{c}$.
       In the high-coherence regime ($\ellgam \approx 1$), this mismatch manifests
@@ -427,9 +428,11 @@ Normalisation with Open Tests\\[6pt]
     \end{proposition}
 
     \begin{remark}
-      Proposition~\ref{prop:phase-heuristic} is stated as an informal structural
-      claim; its precise formulation depends on the outcome of the tests in
-      Sections~\ref{sec:testP2}--\ref{sec:testP3}.
+      Proposition~\ref{prop:phase-heuristic} is an informal structural claim about a pre-saturation
+      factor; for the asymptotic factor of Definition~\ref{def:D} the residue is identically~$1$
+      (Lemma~\ref{lem:rank-seed}), and the proposition does not apply to it.
+      Its precise formulation would depend on the outcome of the tests in
+      Sections~\ref{sec:testP2}--\ref{sec:testP3} for a pre-saturation factor.
       In Case~A (pure basis artefact), the claim is that the mismatch is entirely
       absorbed by the choice of basis; in Cases~B and~C, a component of the
       mismatch is intrinsic to the block instance or the representation geometry.
@@ -462,10 +465,12 @@ Normalisation with Open Tests\\[6pt]
 
     \begin{openproblem}[P2]
       \label{op:P2}
-      Does $\rcq$ vary under changes of initial basis at fixed $(q, c, b_{1}, b_{2})$?
+      For a pre-saturation residual factor, does it vary under changes of initial basis at fixed
+      $(q, c, b_{1}, b_{2})$?
+      (For the factor of Definition~\ref{def:D}, the answer is negative: $\rcq \equiv 1$.)
     \end{openproblem}
 
-  \subsection{Expected outcomes and interpretation}
+  \subsection{Expected outcomes for a pre-saturation factor}
 
     If $\rcq$ varies under P2: the factor has a basis-dependent component,
     consistent with Proposition~\ref{prop:phase-heuristic}.
@@ -484,11 +489,12 @@ Normalisation with Open Tests\\[6pt]
 
     \begin{openproblem}[P3]
       \label{op:P3}
-      Does $\rcq$ vary under changes of block instance $(b_{1}, b_{2})$ at fixed
-      $(q, c)$ and a fixed canonical basis choice?
+      For a pre-saturation residual factor, does it vary under changes of block instance
+      $(b_{1}, b_{2})$ at fixed $(q, c)$ and a fixed canonical basis choice?
+      (For the factor of Definition~\ref{def:D}, the answer is negative: $\rcq \equiv 1$.)
     \end{openproblem}
 
-  \subsection{Expected outcomes and interpretation}
+  \subsection{Expected outcomes for a pre-saturation factor}
 
     If $\rcq$ varies under P3: the factor has a component intrinsic to the
     block-instance geometry, i.e., to how the concrete realisation $(b_{1}, b_{2})$
@@ -500,15 +506,16 @@ Normalisation with Open Tests\\[6pt]
   \label{sec:classification}
 
 
-  The combined outcomes of Tests P2 and P3 would lead to one of the three cases below.
+  For a pre-saturation factor, the combined outcomes of Tests P2 and P3 would lead to one of the three
+  cases below.
   A fourth logical possibility---$\rcq$ stable under both transformations,
   hence an invariant of $(c, q)$ alone, including the trivial value $\rcq \equiv 1$---is
-  not excluded: within its toy model, the $q = 29$ check of O17~\cite{Beau2026a21} verifies the
+  not excluded, and it is the case that holds for Definition~\ref{def:D}: within its toy model, the $q = 29$ check of O17~\cite{Beau2026a21} verifies the
   raw-count block-independence identity; it computes no normalised $\rcq$, so it gives no evidence
   of a variation of $\rcq$.
   For $\rcq$ as defined in Definition~\ref{def:D}, this fourth case is the one that holds
   (Lemma~\ref{lem:rank-seed} and the consequence stated after Remark~\ref{cor:D-asymptotic}), and
-  no canonicalisation is needed: $\sigmacan = \sigmapair$.
+  no canonicalisation is needed: one takes $\sigmacan := \sigmapair$.
   Independently, on O16's contract the conjugate ratio of the exact block observable is also~$1$.
   Tests P2 and P3, and Cases~A--C below, are meaningful only for a residual factor defined on a
   pre-saturation window, which this paper does not define; they concern the normalisation
@@ -555,8 +562,9 @@ Normalisation with Open Tests\\[6pt]
 
   \subsection{Canonical normalisation}
 
-    For each case of the classification of Section~\ref{sec:classification}, which the open tests
-    would decide, we define the reference span $\Sigma^{(c)}_{\mathrm{ref}}(n)$ in
+    For each case of the classification of Section~\ref{sec:classification}, which concerns a
+    pre-saturation factor only (for Definition~\ref{def:D} the fourth case holds and one takes
+    $\sigmacan := \sigmapair$), we define the reference span $\Sigma^{(c)}_{\mathrm{ref}}(n)$ in
     Definition~\ref{def:D} as follows.
 
     In \textbf{Case~A}, the reference span is computed in the metaplectic-adapted
@@ -568,8 +576,9 @@ Normalisation with Open Tests\\[6pt]
     for all $n$ sufficiently large, so $\rcq = 1$.
 
     In \textbf{Case~B}, the basis is already stable under P2, and the
-    instance invariant $r_{\mathrm{inst}}(c, b_{1}, b_{2}, q)$ is identified as the
-    asymptotic ratio~\eqref{eq:r-def} evaluated at any fixed canonical basis choice.
+    instance invariant $r_{\mathrm{inst}}(c, b_{1}, b_{2}, q)$ would be a pre-saturation analogue of
+    the ratio~\eqref{eq:r-def} evaluated at any fixed canonical basis choice (the asymptotic ratio
+    itself equals~$1$).
     The reference span is the minimal span over all instances:
     \[
       \Sigma^{(c)}_{\mathrm{ref}}(n)
@@ -598,8 +607,8 @@ Normalisation with Open Tests\\[6pt]
 
     \begin{openproblem}[Pipeline independence]
       \label{prop:independence}
-      Is $\sigmacan(n)$ independent of the choice of initial basis and block
-      instance, up to corrections that are $o(n^{\dpair})$ asymptotically?
+      On a pre-saturation window, is $\sigmacan(n)$ independent of the choice of initial basis and
+      block instance, up to corrections that are $o(n^{-\dpair})$?
     \end{openproblem}
 
     \begin{remark}
@@ -607,11 +616,11 @@ Normalisation with Open Tests\\[6pt]
       depended on the outcome of Tests~P2 and~P3.
       The statement is not proved and is withdrawn as a result, kept as an open problem with its
       number.
+      It is restated here on a pre-saturation window, since past saturation the observable vanishes
+      and an asymptotic statement would be empty.
       For the factor of Definition~\ref{def:D}, Lemma~\ref{lem:rank-seed} gives $\rcq \equiv 1$ and
-      $\sigmacan = \sigmapair$, and on the finite graph the asymptotic statement is then trivial past
-      saturation; the meaningful question concerns the pre-saturation window, where the seed
-      dependence of $\Sigma^{(c)}$ (Lemma~\ref{lem:rank-seed}(i)) is not controlled and the question
-      remains open.
+      one takes $\sigmacan := \sigmapair$; on the pre-saturation window the seed dependence of
+      $\Sigma^{(c)}$ (Lemma~\ref{lem:rank-seed}(i)) is not controlled, and the question remains open.
       In Case~A it would follow from the definition of the metaplectic-adapted basis; in
       Cases~B and~C it would require the shell-independence of $r_{\mathrm{inst}}$.
     \end{remark}
@@ -657,8 +666,8 @@ Normalisation with Open Tests\\[6pt]
     exponent but is needed to ensure that the persistence criterion is evaluated
     on a convention-free observable.
     O21 will examine the historical $\dpair \to \bstar$ prescription at the fibre level;
-    Definition~\ref{def:sigmacan} gives the proposed starting point, conditional on the outcome
-    of the open tests.
+    Definition~\ref{def:sigmacan} gives the proposed starting point; for the factor of
+    Definition~\ref{def:D} it reduces to $\sigmapair$.
 
   \subsection{What O19 does not resolve}
 
@@ -700,8 +709,9 @@ Normalisation with Open Tests\\[6pt]
     factor that is either constant (Cases~A and~B) or decomposes into constant
     factors (Case~C).
     A constant multiplicative factor shifts $\log \sigmapair(n)$ by an additive
-    constant and therefore does not affect the asymptotic slope
-    $\dpair = -\lim_{n \to \infty} \frac{\mathrm{d}\log\sigmapair(n)}{\mathrm{d}\log n}$.
+    constant and therefore does not affect the slope
+    $\dpair = -\frac{\mathrm{d}\log\sigmapair(n)}{\mathrm{d}\log n}$ on the pre-saturation window
+    (past saturation $\sigmapair$ vanishes and no slope is defined).
   \end{proof}
 
   \begin{remark}
@@ -719,7 +729,7 @@ Normalisation with Open Tests\\[6pt]
   $D(c, b_{1}, b_{2}, n)$ of the O12/O13 Gram--Schmidt span tracker and
   formulated two independence tests for the residual amplitude factor $\rcq$.
   For the factor as defined, an asymptotic limit, Lemma~\ref{lem:rank-seed} gives $\rcq \equiv 1$
-  for every seed and block instance, so the fourth case holds and $\sigmacan = \sigmapair$; a
+  for every seed and block instance, so the fourth case holds and one takes $\sigmacan := \sigmapair$; a
   non-trivial factor would need a pre-saturation definition, for which the tests are open.
   The former Corollary~2.5, an asymptotic power law for $\Sigma^{(c)}$, is withdrawn.
 
