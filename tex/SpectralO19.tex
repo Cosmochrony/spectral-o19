@@ -29,19 +29,19 @@
 
 
 \title{Canonical Pair Observables in Weil Blocks:\\
-Structure of the Residual Amplitude Factor and Pipeline-Independent
-Formulation\\[6pt]
+The Residual Amplitude Factor and a Proposed Canonical
+Normalisation with Open Tests\\[6pt]
 {\large O19 --- Spectral Admissibility Sub-programme}}
 
 \author{J.~Beau\\[4pt]
 \small Independent Researcher}
 
-\date{2026\\Version 1.2}
+\date{2026\\Version 1.3}
 
 
 \hypersetup{
-  pdftitle={Canonical Pair Observables in Weil Blocks: Structure of the Residual Amplitude Factor
-    and Pipeline-Independent Formulation},
+  pdftitle={Canonical Pair Observables in Weil Blocks: The Residual Amplitude Factor
+    and a Proposed Canonical Normalisation with Open Tests},
   pdfauthor={Jérôme Beau}
 }
 
@@ -54,24 +54,27 @@ Formulation\\[6pt]
     candidate observable on $\Heis$, with capacity exponent
     $\dpair \approx 7.44$ consistent with the historical comparison range
     $\dpair \in [7.4, 10.6]$.
-    However, a residual amplitude factor $\rcq \in \{1,2,3,4\}$ persists in the
-    current pipeline, reflecting a dependence on the Gram--Schmidt initialisation
-    parameters $(b_{1}, b_{2})$ identified in~O17 but not yet resolved.
+    A residual amplitude factor $\rcq \in \{1,2,3,4\}$, depending on the Gram--Schmidt
+    initialisation parameters $(b_{1}, b_{2})$, was reported in earlier work; those values are not
+    reproduced, and on the real O12/O13 pipeline the exact conjugate-block identity of O16 forces
+    $\rcq \equiv 1$ within O16's contract.
+    The factor is treated here as a hypothesis.
     The present paper begins by making explicit the implicit normalisation factor
     $D(c, b_{1}, b_{2}, n)$ of the O12/O13 implementation, separating its
     dependence on the initial basis, the block instance, and the normalisation
     convention.
-    We then determine the dependence structure of $\rcq$ by two independent
-    tests: variation under basis change at fixed block instance (Test~P2), and
-    variation under block-instance change at rigidly fixed basis (Test~P3).
+    We then formulate two independence tests for $\rcq$: variation under basis
+    change at fixed block instance (Test~P2), and variation under block-instance
+    change at rigidly fixed basis (Test~P3).
     Three outcomes are possible: $\rcq$ is a pure basis artefact (Case~A,
     eliminable by canonical choice), a discrete instance invariant (Case~B,
     requiring a canonical quotient), or a mixed quantity with both components
     (Case~C, requiring a decomposition $r = r_{\mathrm{base}}\,r_{\mathrm{inst}}$).
-    We identify which case holds for the primes tested, relate the observed
-    structure to the metaplectic central-phase coherence $\ellgam(n)$ identified
-    in~O12, and construct the corresponding canonical observable $\sigmacan(n)$
-    independent of pipeline conventions.
+    The tests are posed as open problems and are not carried out here, so the case is not
+    identified.
+    For each case we give the construction of a canonical observable $\sigmacan(n)$ that would
+    follow and relate it heuristically to the metaplectic central-phase coherence $\ellgam(n)$
+    of~O12; its independence from pipeline conventions is stated as an open problem, not proved.
     The exponent $\dpair$ is unaffected in all cases; the contribution of this
     paper concerns the amplitude structure, which is a prerequisite for the
     fibre-level study of the historical $\dpair \to \bstar$ prescription deferred to~O21.
@@ -108,28 +111,37 @@ Formulation\\[6pt]
   and states the identification of the parity orbit $\{c, q-c\}$ with a fibre of $\Pi$ as an open problem;
   the pair observable of O16--O17 therefore retains the status of a structurally motivated hypothesis.
 
-  Despite this closure, the pair observable $\sigmapair(n)$ retains a residual
-  amplitude factor $\rcq \in \{1, 2, 3, 4\}$ that depends on the pipeline
-  normalisation $D(c, b_{1}, b_{2}, n)$, currently implicit in the O12/O13
-  implementation~\cite{Beau2026a16,Beau2026a17}.
+  A residual amplitude factor $\rcq \in \{1, 2, 3, 4\}$ of the pair observable
+  $\sigmapair(n)$, depending on the pipeline normalisation $D(c, b_{1}, b_{2}, n)$
+  implicit in the O12/O13 implementation~\cite{Beau2026a16,Beau2026a17}, was reported in
+  earlier versions of O16.
+  Three statements must be kept apart.
+  The integer values are a historical hypothesis whose source is not reproduced.
+  O16~\cite{Beau2026a20} shows that, on the real O12/O13 pipeline, its exact conjugate-block
+  identity forces $\rcq \equiv 1$; this holds within O16's contract and is not a statement
+  about other observables or normalisations.
+  O17~\cite{Beau2026a21} shows, within its own toy model only, that any variation of $\rcq$
+  would reside entirely in the normalisation $D$.
+  The present paper treats a non-trivial $\rcq$ as a hypothesis.
   O18 Section~4.3 lists the construction of a canonical normalisation
   independent of $(b_{1}, b_{2})$ among its open directions, deferred
   to the present paper.
 
   The goal of O19 is not to assume in advance that $\rcq$ is eliminable.
-  Instead, we first determine its precise dependence structure, then construct
-  the canonical observable appropriate to whichever case holds.
+  Instead, we formulate the tests that would determine its dependence structure, and give
+  the canonical observable that each outcome would call for.
   The dependence structure of $\rcq$ is not assumed a priori and may follow three distinct
   scenarios: a pure basis artefact (Case~A, eliminable by canonical choice of initial frame),
   a discrete instance invariant (Case~B, requiring a canonical quotient), or a mixed quantity
   admitting a decomposition $\rcq = r_{\mathrm{base}} \cdot r_{\mathrm{inst}}$ with both
   components (Case~C).
-  All three cases are treated; the classification is determined empirically in
-  Section~\ref{sec:classification}.
+  All three cases are treated; the classification would be determined empirically by the
+  tests of Sections~\ref{sec:testP2}--\ref{sec:testP3}, which are posed here as open problems
+  and not carried out.
 
   \paragraph{Scope.}
-    O19 does not aim to modify the observable class or the exponent, but to remove the last
-    layer of pipeline dependence at the amplitude level.
+    O19 does not aim to modify the observable class or the exponent, but to state how the last
+    layer of pipeline dependence at the amplitude level could be removed.
     It does not re-derive $\dpair$, does not address the open fibre-identification problem of O18, and does
     not address the historical $\dpair \to \bstar$ prescription, which is the subject of~O21.
 
@@ -140,8 +152,8 @@ Formulation\\[6pt]
     coherence of the Weil representation.
     Sections~\ref{sec:testP2} and~\ref{sec:testP3} present the two independence
     tests.
-    Section~\ref{sec:classification} classifies the outcome as Case~A, B, or~C.
-    Section~\ref{sec:canonical} constructs the canonical observable accordingly.
+    Section~\ref{sec:classification} lists the possible outcomes, Case~A, B, or~C.
+    Section~\ref{sec:canonical} gives the case-dependent construction of the canonical observable.
     Section~\ref{sec:discussion} interprets the result.
     Section~\ref{sec:stability} verifies that $\dpair$ is unaffected.
     Section~\ref{sec:conclusion} concludes.
@@ -454,17 +466,17 @@ $v_{0}$.
     block-instance geometry, i.e., to how the concrete realisation $(b_{1}, b_{2})$
     encounters the structure of $\rho_{c}$.
     This would make $\rcq$ a discrete invariant of the pair
-    $(b_{1}, b_{2}, \rho_{c})$ rather than of $(c, q)$ alone, consistent
-    with the counter-example observed in O17 at $q = 29$.
+    $(b_{1}, b_{2}, \rho_{c})$ rather than of $(c, q)$ alone.
 
   \section{Classification of the Residual Factor}
   \label{sec:classification}
 
 
-  The combined outcomes of Tests P2 and P3 lead to three distinct cases.
-  The fourth logical possibility---$\rcq$ stable under both transformations,
-  implying it is an invariant of $(c, q)$ alone---is excluded by the
-  $q = 29$ counter-example of O17~\cite{Beau2026a21}.
+  The combined outcomes of Tests P2 and P3 would lead to one of the three cases below.
+  A fourth logical possibility---$\rcq$ stable under both transformations,
+  hence an invariant of $(c, q)$ alone, including the trivial value $\rcq \equiv 1$---is
+  not excluded: the $q = 29$ computation of O17~\cite{Beau2026a21} checks the block-independence
+  identity and exhibits no variation of $\rcq$.
 
   \begin{description}
     \item[Case A (pure basis artefact).]
@@ -494,10 +506,11 @@ $v_{0}$.
   \end{description}
 
   \begin{remark}
-    Case~C is the most conservative prior, consistent with the current state of
-    knowledge: O17 shows that $\rcq$ is not an invariant of $(c,q)$ alone, but
-    does not determine which component of the dependence is absorbed by a change
-    of basis.
+    Case~C is the most general of the three; it is not supported by any reported
+    measurement.
+    Within its toy model, O17 shows only that any variation of $\rcq$ would reside in the
+    normalisation $D$; it does not show that $\rcq$ varies, nor which component of a variation
+    would be absorbed by a change of basis.
   \end{remark}
 
   \section{Construction of the Canonical Observable}
@@ -505,8 +518,8 @@ $v_{0}$.
 
   \subsection{Canonical normalisation}
 
-    Based on the classification of Section~\ref{sec:classification}, we define
-    the reference span $\Sigma^{(c)}_{\mathrm{ref}}(n)$ in
+    For each case of the classification of Section~\ref{sec:classification}, which the open tests
+    would decide, we define the reference span $\Sigma^{(c)}_{\mathrm{ref}}(n)$ in
     Definition~\ref{def:D} as follows.
 
     In \textbf{Case~A}, the reference span is computed in the metaplectic-adapted
@@ -546,19 +559,22 @@ $v_{0}$.
       canonical normalisation as defined above.
     \end{definition}
 
-    \begin{proposition}[Pipeline independence]
+    \begin{openproblem}[Pipeline independence]
       \label{prop:independence}
-      $\sigmacan(n)$ is independent of the choice of initial basis and block
-      instance, up to corrections that are $o(n^{\dpair})$ asymptotically.
-    \end{proposition}
+      Is $\sigmacan(n)$ independent of the choice of initial basis and block
+      instance, up to corrections that are $o(n^{\dpair})$ asymptotically?
+    \end{openproblem}
 
-    \begin{proof}[Proof sketch]
-% TO BE COMPLETED based on the outcome of Tests P2 and P3.
-      In Case~A, the result follows directly from the definition of the
-      metaplectic-adapted basis.
-      In Cases~B and~C, it follows from the quotient construction and the
-      shell-independence of $r_{\mathrm{inst}}$ established in Test~P3.
-    \end{proof}
+    \begin{remark}
+      Versions up to~1.2 stated this independence as Proposition~7.2 with a proof sketch that
+      depended on the outcome of Tests~P2 and~P3.
+      Those tests are open (Open Problems~\ref{op:P2} and~\ref{op:P3}), so the case is not
+      identified, $r_{\mathrm{inst}}$ is not established to be shell-independent, and the
+      statement is not proved.
+      It is withdrawn as a result and kept as an open problem, with its number.
+      In Case~A it would follow from the definition of the metaplectic-adapted basis; in
+      Cases~B and~C it would require the shell-independence of $r_{\mathrm{inst}}$.
+    \end{remark}
 
   \section{Discussion}
   \label{sec:discussion}
@@ -586,20 +602,22 @@ $v_{0}$.
     natural interpretation in terms of instance multiplicity, i.e., how many
     $\gamma$-sectors the concrete block $(b_{1}, b_{2})$ activates coherently.
     This decomposition \emph{suggests} these interpretations without requiring them:
-    the classification is empirically determined, and the interpretation follows
-    from the outcome of Tests~P2 and~P3.
+    the classification would be determined empirically, and the interpretation would follow
+    from the outcome of Tests~P2 and~P3, which are open.
 
   \subsection{Implications for O20 and O21}
 
-    The canonical observable $\sigmacan(n)$ constructed here is the input
-    required for the two subsequent papers.
+    The canonical observable $\sigmacan(n)$ proposed here would be the input
+    required for the two subsequent papers; since its case is not identified and its
+    pipeline independence is open (Open Problem~\ref{prop:independence}), those papers cannot
+    import it as a constructed, convention-free observable.
     O20 will investigate a persistence criterion and its comparison with the
     historical comparison range $\dpair \in [7.4, 10.6]$; the amplitude normalisation is irrelevant for the
     exponent but is needed to ensure that the persistence criterion is evaluated
     on a convention-free observable.
-    O21 will examine the historical $\dpair \to \bstar$ prescription at the fibre level without
-    reliance on pipeline conventions; Definition~\ref{def:sigmacan} provides the
-    required starting point.
+    O21 will examine the historical $\dpair \to \bstar$ prescription at the fibre level;
+    Definition~\ref{def:sigmacan} gives the proposed starting point, conditional on the outcome
+    of the open tests.
 
   \subsection{What O19 does not resolve}
 
@@ -607,9 +625,10 @@ $v_{0}$.
 
     \begin{openproblem}
       \label{op:arithmetic}
-      The arithmetic origin of $\rcq \in \{1,2,3,4\}$---likely related to
-      quadratic Gauss sums and character multiplicities of the Weil
-      representation---is left open.
+      Whether a non-trivial $\rcq$ occurs for any normalisation of interest, and, if so,
+      the arithmetic origin of the reported values $\rcq \in \{1,2,3,4\}$---possibly
+      related to quadratic Gauss sums and character multiplicities of the Weil
+      representation---are left open.
     \end{openproblem}
 
     \begin{openproblem}
@@ -657,24 +676,20 @@ $v_{0}$.
 
   We have made explicit the implicit pipeline normalisation factor
   $D(c, b_{1}, b_{2}, n)$ of the O12/O13 Gram--Schmidt span tracker and
-  determined the dependence structure of the residual amplitude factor
-  $\rcq$ by two independent tests.
+  formulated two independence tests for the residual amplitude factor $\rcq$.
+  The tests are open, so the dependence structure of $\rcq$ is not determined.
 
-  The classification (Cases~A, B, or~C) determines the appropriate
-  construction for the canonical pair observable $\sigmacan(n)$,
-  which is independent of pipeline conventions by
-  Proposition~\ref{prop:independence}.
-  The capacity exponent $\dpair$ is unaffected in all cases
+  The classification (Cases~A, B, or~C) would determine the appropriate
+  construction for the canonical pair observable $\sigmacan(n)$; its independence
+  of pipeline conventions is an open problem (Open Problem~\ref{prop:independence}), not a
+  result.
+  A constant multiplicative factor leaves the capacity exponent $\dpair$ unchanged
   (Proposition~\ref{prop:exponent}).
+  On the real O12/O13 pipeline, O16's conjugate-block identity forces $\rcq \equiv 1$ within
+  its contract; the reported values $\rcq \in \{1,2,3,4\}$ remain a historical hypothesis.
 
-  This completes the normalisation step of the fibre-level programme
-  initiated in O16--O18.
-  The canonical observable $\sigmacan(n)$ defined here is the starting point
-  for O20 (persistence criterion compared with the historical range $\dpair \in [7.4, 10.6]$)
-  and O21 (fibre-level study of the historical $\dpair \to \bstar$ prescription).
-  This canonicalisation step isolates the intrinsic amplitude structure of pair
-  observables, and prepares the identification of dynamical selection criteria
-  for pair exponents.
+  The normalisation step of the fibre-level programme therefore remains open.
+  O20 and O21 refer to the observable proposed here, not to a constructed one.
 
   \clearpage
   \bibliographystyle{plain}
