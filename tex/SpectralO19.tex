@@ -51,9 +51,9 @@ Normalisation with Open Tests\\[6pt]
   \begin{abstract}
     The O12--O18 sequence identifies the pair-level quantity
     $\sigmapair(n) = \sigma_{c}(n)\,\sigma_{q-c}(n)$ as the structurally motivated
-    candidate observable on $\Heis$, with capacity exponent
-    $\dpair \approx 7.44$ consistent with the historical comparison range
-    $\dpair \in [7.4, 10.6]$.
+    candidate observable on $\Heis$; a capacity exponent near
+    $\dpair \approx 7.44$ was historically compared with the range
+    $\dpair \in [7.4, 10.6]$, a value O16 no longer asserts.
     A residual amplitude factor $\rcq \in \{1,2,3,4\}$, depending on the Gram--Schmidt
     initialisation parameters $(b_{1}, b_{2})$, was reported in earlier work; those values are not
     reproduced, and on the real O12/O13 pipeline the exact conjugate-block identity of O16 forces
@@ -66,7 +66,8 @@ Normalisation with Open Tests\\[6pt]
     We then formulate two independence tests for $\rcq$: variation under basis
     change at fixed block instance (Test~P2), and variation under block-instance
     change at rigidly fixed basis (Test~P3).
-    Three outcomes are possible: $\rcq$ is a pure basis artefact (Case~A,
+    Three non-trivial outcomes are considered, alongside a fourth (an invariant of $(c,q)$,
+    including $\rcq \equiv 1$) that is not excluded: $\rcq$ is a pure basis artefact (Case~A,
     eliminable by canonical choice), a discrete instance invariant (Case~B,
     requiring a canonical quotient), or a mixed quantity with both components
     (Case~C, requiring a decomposition $r = r_{\mathrm{base}}\,r_{\mathrm{inst}}$).
@@ -101,8 +102,8 @@ Normalisation with Open Tests\\[6pt]
   $\hat{\delta}_{\mathrm{exact}} \approx 3.72$, structurally below the
   historical comparison range $\delta \in [7.4, 10.6]$.
   O16~\cite{Beau2026a20} proposed that the physically relevant
-  observable lives at the level of conjugate pairs $\{c, q-c\}$, yielding
-  $\dpair = 2\dc \approx 7.44$.
+  observable lives at the level of conjugate pairs $\{c, q-c\}$,
+  with $\dpair = 2\dc$ when the conjugate ratio is shell-independent; the historical value near $7.44$ is not asserted by O16.
   Within its own toy model, O17~\cite{Beau2026a21} shows that the raw Gram--Schmidt
   dynamics of blocks $c$ and $q-c$ coincide, so that any variation of the factor $\rcq$ would
   reside in the normalisation; none of this is asserted there for the O12/O13 pipeline, on
@@ -131,7 +132,8 @@ Normalisation with Open Tests\\[6pt]
   The goal of O19 is not to assume in advance that $\rcq$ is eliminable.
   Instead, we formulate the tests that would determine its dependence structure, and give
   the canonical observable that each outcome would call for.
-  The dependence structure of $\rcq$ is not assumed a priori and may follow three distinct
+  The dependence structure of $\rcq$ is not assumed a priori; besides a fourth possibility
+  ($\rcq$ an invariant of $(c,q)$, including $\rcq \equiv 1$), it may follow three distinct
   scenarios: a pure basis artefact (Case~A, eliminable by canonical choice of initial frame),
   a discrete instance invariant (Case~B, requiring a canonical quotient), or a mixed quantity
   admitting a decomposition $\rcq = r_{\mathrm{base}} \cdot r_{\mathrm{inst}}$ with both
@@ -253,8 +255,10 @@ Normalisation with Open Tests\\[6pt]
       \end{equation}
       assumed to exist and to be finite.
       Equivalently, $\rcq = \lim_{n\to\infty} D(c,b_{1},b_{2},n) / D(q-c,b_{1},b_{2},n)$.
-      The convergence is in the ordinary sense (not limsup), and its existence is assumed;
-      on O16's contract (the real O12/O13 pipeline) the ratio is identically~$1$.
+      The convergence is in the ordinary sense (not limsup), and its existence is assumed.
+      On O16's contract, where the conjugate ratio is taken on the exact block observable
+      $\Sigma_n^{(c_1,c_2,c_3)}$ of the O12/O13 pipeline, O16's conjugate-block identity gives~$1$;
+      that the ratio defined here coincides with that one is not established.
     \end{definition}
 
     \begin{remark}
@@ -420,7 +424,7 @@ $v_{0}$.
     In this basis, the phase $e^{2\pi i c\,\gamma/q}$ contributes a diagonal
     factor to every group element, and no interference between different
     $\gamma$-sectors can arise.
-    Case~A would be confirmed if $\rcq$ varied under P2 and equalled $1$ in this basis for all
+    Case~A would be confirmed if $\rcq$ varied under P2, was stable under P3, and equalled $1$ in this basis for all
     primes tested; $\rcq = 1$ alone confirms nothing, since it also holds in the fourth case
     below.
 
@@ -481,8 +485,9 @@ $v_{0}$.
   not excluded: within its toy model, the $q = 29$ check of O17~\cite{Beau2026a21} verifies the
   raw-count block-independence identity; it computes no normalised $\rcq$, so it gives no evidence
   of a variation of $\rcq$.
-  In this fourth case, which holds on O16's contract with $\rcq \equiv 1$, no canonicalisation is
-  needed and $\sigmacan = \sigmapair$.
+  In this fourth case no canonicalisation is needed and $\sigmacan = \sigmapair$; on O16's contract
+  the conjugate ratio of the exact block observable is $1$, so no canonicalisation is needed for that
+  observable, but that it coincides with the ratio defined here is not established.
   Tests P2 and P3 concern the normalisation parametrised by $(b_{1}, b_{2})$, whose relation to the
   pipeline's block index $(c_1,c_2,c_3)$ is not given (O17).
 
@@ -673,9 +678,9 @@ $v_{0}$.
 
   \begin{remark}
     This proposition confirms that O19 operates strictly at the amplitude level.
-    The results of O16--O18 concerning the exponent $\dpair \approx 7.44$ and
-    its comparison with the historical range $\delta \in [7.4, 10.6]$ are
-    unaffected.
+    Statements of O16--O18 about the pair exponent and its comparison with the historical range
+    $\delta \in [7.4, 10.6]$ are unaffected by a constant normalisation factor; the historical
+    value near $7.44$ is not asserted by O16.
   \end{remark}
 
   \section{Conclusion}

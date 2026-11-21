@@ -45,8 +45,8 @@ in this version.
   fixed basis), posed as Open Problems 4.1 and 5.1;
 - a classification of their possible outcomes (Case A: basis artefact; Case B: instance invariant;
   Case C: mixed, $r=r_{\mathrm{base}}\,r_{\mathrm{inst}}$); a fourth case, $r$ an invariant of $(c,q)$
-  alone, including $r\equiv1$, is not excluded, and on O16's contract it holds with $r\equiv1$, so
-  that no canonicalisation is needed there;
+  alone, including $r\equiv1$, is not excluded; on O16's contract the conjugate ratio of the exact
+  block observable is $1$, but that it coincides with the ratio defined here is not established;
 - for each case, the construction of a canonical pair observable
   $\sigma_{\mathrm{pair}}^{\mathrm{can}}(n)$ that would follow (Definition 7.1);
 - its pipeline independence, now Open Problem 7.2.
